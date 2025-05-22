@@ -1,0 +1,115 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+background-color: whitesmoke;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 80px 2fr;
+    grid-auto-flow: dense;
+
+    grid-template-areas: "navbar navbar navbar"
+                         "leftbar content rightbar";
+
+    height: 100vh;
+    width: 100%;
+}
+navbar{
+    background-color: white;
+    grid-area: navbar;
+    width: 100%;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+
+    position: relative;
+}
+navbar >h2 {
+    margin-left: 10px;
+    color: rgb(69, 131, 212);
+}
+navbar >input{
+    position: absolute;
+    left: 200px;
+    padding: 10px;
+    width: 300px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px 5px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: 0.5s;
+}
+navbar >input:hover{
+    border-bottom: 1px solid black;
+}
+navbar .navbarIcon{
+    position: absolute;
+    left: 550px;
+}
+
+navbar .navbarProfile{
+    position: absolute;
+    margin: 30px;
+    padding: 3px;
+    font-size: larger;
+    cursor: pointer;
+    transition: 0.8s;
+    right: 30px;
+}
+.navbarProfile >span {
+    color: white;
+    background-color: rgb(107, 104, 104);
+    padding: 3px;
+    border-radius: 3px;
+    transition: 0.5s;
+}
+.navbarProfile >span:hover{
+    background-color:red ;
+}
+.navbarIcon >span{
+    margin: 30px;
+    color: rgb(160, 154, 154);
+    padding: 3px;
+    font-size: larger;
+    cursor: pointer;
+    transition: 0.8s;
+}
+.navbarIcon >span:hover{
+    color: white;
+    background-color: rgb(107, 104, 104);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 3px;
+    border-radius: 3px;
+
+}
+
+
+
+leftbar{
+    background-color: white;
+    grid-area: leftbar;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+rightbar{
+    background-color: white;
+    grid-area: rightbar;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+content{
+    background-color: white;
+    grid-area: content;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
