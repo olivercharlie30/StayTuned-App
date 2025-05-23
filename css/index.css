@@ -154,6 +154,12 @@ content{
     background-color: white;
     grid-area: content;
     /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .postImageContent{
@@ -335,6 +341,7 @@ content{
         top: 30px;
         color: rgb(70, 68, 68);
         transition: 0.5s;
+        cursor: pointer;
        
     }
     navbar .fa-magnifying-glass:hover{
@@ -434,6 +441,125 @@ content{
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
 
+    .postImageContent{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 500px;
+    height: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    /* padding:30px 30px ; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+    border-radius: 10px;
+    
+}
+
+.postImageContent .postIcon{
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+
+
+.postImageContent .postIcon .fa-angles-right{
+    margin-right: 15px;
+}
+.fa-angles-right:hover{
+   transition: 0.3s ease;
+}
+
+.fa-angles-right:hover{
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+}
+.fa-xmark:hover{
+    transition: 0.3s ease;
+ }
+ 
+ .fa-xmark:hover{
+     background-color: black;
+     color: white;
+     border-radius: 10px;
+ }
+.postImageContent .user{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
+.user .userProfile{
+    margin-right: 10px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+}
+
+.postImageContent .dateTime{
+   font-size: small;
+   font-weight: bold;
+   padding-left: 80px;
+   padding-bottom: 10px;
+}
+
+ .category{
+    padding: 10px 10px;
+    text-align:left;
+    gap: 5px;
+    font-style: italic;
+    
+}
+
+ .textMore{
+    display: none;
+}
+
+.showMore{
+    display: flex;
+}
+
+
+.postImageContent .readMoreBtn{
+    padding: 3px 3px;
+    margin-left: 5px;
+    cursor: pointer;
+    font-weight: 650;
+    display: none;
+}
+.postImageContent .readMoreBtn:hover{
+    padding: 3px 3px;
+    margin-left: 5px;
+    text-decoration: underline;
+}
+.postImageContent .postImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70vh ;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.postImageContent .countLike{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 15px;
+    cursor: pointer;
+}
+.postImageContent .likeSection{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 10px;
+    border-top: 2px solid black;
+    cursor: pointer;
+}
+
 }
 
 
@@ -499,8 +625,9 @@ content{
         position: absolute;
         color: rgb(77, 75, 75);
         top: 30px;
-        left: 150px;
+        left: 165px;
         font-size: x-large;
+        cursor: pointer;
         transition: 0.5s;
     }
    navbar .fa-magnifying-glass:hover{
@@ -575,6 +702,126 @@ content{
     
     }
     
+
+    .postImageContent{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 450px;
+    height: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    /* padding:30px 30px ; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+    border-radius: 10px;
+    
+}
+
+.postImageContent .postIcon{
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+
+
+.postImageContent .postIcon .fa-angles-right{
+    margin-right: 15px;
+}
+.fa-angles-right:hover{
+   transition: 0.3s ease;
+}
+
+.fa-angles-right:hover{
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+}
+.fa-xmark:hover{
+    transition: 0.3s ease;
+ }
+ 
+ .fa-xmark:hover{
+     background-color: black;
+     color: white;
+     border-radius: 10px;
+ }
+.postImageContent .user{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
+.user .userProfile{
+    margin-right: 10px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+}
+
+.postImageContent .dateTime{
+   font-size: small;
+   font-weight: bold;
+   padding-left: 80px;
+   padding-bottom: 10px;
+}
+
+ .category{
+    padding: 10px 10px;
+    text-align:left;
+    gap: 5px;
+    font-style: italic;
+    
+}
+
+ .textMore{
+    display: none;
+}
+
+.showMore{
+    display: flex;
+}
+
+
+.postImageContent .readMoreBtn{
+    padding: 3px 3px;
+    margin-left: 5px;
+    cursor: pointer;
+    font-weight: 650;
+    display: none;
+}
+.postImageContent .readMoreBtn:hover{
+    padding: 3px 3px;
+    margin-left: 5px;
+    text-decoration: underline;
+}
+.postImageContent .postImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50vh ;
+    margin:0 auto ;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.postImageContent .countLike{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 15px;
+    cursor: pointer;
+}
+.postImageContent .likeSection{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 10px;
+    border-top: 2px solid black;
+    cursor: pointer;
+}
     
 
 }

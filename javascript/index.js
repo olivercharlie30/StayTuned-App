@@ -5,6 +5,8 @@ let faComment = document.querySelector("#fa-comment");
 let afterCreateElementEllipsis = document.querySelector(".afterCreateElementEllipsis");
 
 
+
+function scrolly() {
 window.addEventListener("scroll", ()=> {
     navbar.classList.toggle(window.scrollBy > 0);
     navbar.style.position = "fixed";
@@ -12,6 +14,10 @@ window.addEventListener("scroll", ()=> {
     navbar.style.width = "100%";
 
 });
+}
+scrolly();
+
+
 
 function faEllipsisCreateElement() {
     let div = document.createElement("div");
@@ -28,13 +34,16 @@ ellipsis.addEventListener("click", ()=> {
 
 function Comment() {
   let div = document.createElement("div");
-  div.innerHTML = "this is Create Element rightbar";
+  div.innerHTML = "this is Create Element Comment";
   div.className = "CreateELementComment";
   navbar.appendChild(div);
 };
 faComment.addEventListener("click", ()=> {
      Comment();
 });
+
+
+
 
 fetch('https://fakestoreapi.com/products')
   .then(data => {
