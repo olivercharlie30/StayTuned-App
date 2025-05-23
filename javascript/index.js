@@ -2,6 +2,7 @@ let ellipsis = document.querySelector("#fa-ellipsis");
 let content = document.querySelector("content");
 let navbar = document.querySelector("navbar");
 let faComment = document.querySelector("#fa-comment");
+let faBell = document.querySelector("#fa-bell");
 let afterCreateElementEllipsis = document.querySelector(".afterCreateElementEllipsis");
 
 
@@ -32,16 +33,26 @@ ellipsis.addEventListener("click", ()=> {
 
 
 
-function Comment() {
+function CommentCreteElement() {
   let div = document.createElement("div");
   div.innerHTML = "this is Create Element Comment";
   div.className = "CreateELementComment";
   navbar.appendChild(div);
 };
 faComment.addEventListener("click", ()=> {
-     Comment();
+     CommentCreteElement();
 });
 
+
+function fabellCreateElement() {
+   let div = document.createElement("div");
+  div.innerHTML = "this is Create Element Comment";
+  div.className = "CreateELementBell";
+  navbar.appendChild(div);
+};
+faBell.addEventListener("click", ()=> {
+    fabellCreateElement();
+});
 
 
 
