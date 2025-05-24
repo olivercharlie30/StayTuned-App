@@ -5,6 +5,32 @@ let faComment = document.querySelector("#fa-comment");
 let faBell = document.querySelector("#fa-bell");
 let afterCreateElementEllipsis = document.querySelector(".afterCreateElementEllipsis");
 
+let houseReloadPage = document.querySelector("#house");
+let titleReload = document.querySelector("#titleReload");
+
+
+
+function reloadPage() {
+  window.location.reload();
+  window.location.href = 'index.html';
+}
+houseReloadPage.addEventListener("click", ()=> {
+    reloadPage();
+});
+
+function titleReloadPage() {
+  window.location.reload();
+  window.location.href = 'index.html';
+  titleReloadPage.style.position = "fixed";
+  
+}
+titleReload.addEventListener("click", ()=> {
+    titleReloadPage();
+});
+
+
+
+
 
 
 function scrolly() {
@@ -46,7 +72,11 @@ faComment.addEventListener("click", ()=> {
 
 function fabellCreateElement() {
    let div = document.createElement("div");
-  div.innerHTML = "this is Create Element Comment";
+  div.innerHTML = `<p>Must have a background for building responsive websites using React js.
+Must have a basic knowledge of RESTFul applications.
+Must have a background or understanding with Javascript and Typescript
+Must have a good understanding of how Full Stack applications work
+Fresh graduates are welcome to apply</p>`;
   div.className = "CreateELementBell";
   navbar.appendChild(div);
 };

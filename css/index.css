@@ -39,6 +39,7 @@ navbar{
 navbar >h2 {
     margin-left: 10px;
     color: rgb(3, 53, 119);
+    cursor: pointer;
 }
 navbar >input{
     position: absolute;
@@ -620,7 +621,7 @@ content{
         position: relative;
     }
     navbar >h2 {
-        margin-left: 5px;
+        margin-left: 3px;
         color: rgb(3, 53, 119);
         
     }
