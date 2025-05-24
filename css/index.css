@@ -35,7 +35,7 @@ navbar{
 }
 navbar >h2 {
     margin-left: 10px;
-    color: rgb(69, 131, 212);
+    color: rgb(3, 53, 119);
 }
 navbar >input{
     position: absolute;
@@ -51,6 +51,10 @@ navbar >input{
 }
 navbar >input:hover{
     border-bottom: 1px solid black;
+}
+
+navbar .fa-magnifying-glass{
+    display: none;
 }
 navbar .navbarIcon{
     position: absolute;
@@ -74,7 +78,8 @@ navbar .navbarProfile{
     transition: 0.5s;
 }
 .navbarProfile >span:hover{
-    background-color:red ;
+    background-color:white;
+    color:rgb(125, 124, 129) ;
 }
 .navbarIcon >span{
     margin: 30px;
@@ -107,6 +112,9 @@ rightbar{
 
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+rightbar .CreateELementEllipsis{
+    background-color: red;
+}
 content{
     background-color: white;
     grid-area: content;
@@ -132,6 +140,124 @@ content{
         width: 100%;
     }
 
+    navbar{
+        background-color: white;
+        grid-area: navbar;
+        width: 100%;
+    
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+    
+        position: relative;
+    }
+    navbar >h2 {
+        margin-left: 10px;
+        color: rgb(3, 53, 119);
+    }
+    navbar >input{
+        position: absolute;
+        left: 150px;
+        padding: 10px;
+        width: 200px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px 5px;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        transition: 0.5s;
+
+        display: none;
+    }
+    navbar >input:hover{
+        border-bottom: 1px solid black;
+    }
+    
+    navbar .fa-magnifying-glass{
+        display: flex;
+        align-items: center;
+        position: absolute;
+        left: 180px;
+        font-size: x-large;
+        top: 30px;
+        color: rgb(70, 68, 68);
+        transition: 0.5s;
+       
+    }
+    navbar .fa-magnifying-glass:hover{
+        color: white;
+        background-color:rgb(125, 124, 129) ;
+        padding: 2px;
+        border-radius: 5px;
+       }
+    
+
+    navbar .navbarIcon{
+        position: absolute;
+        left: 250px;
+        display: none;
+      
+    }
+
+    navbar .navbarProfile{
+        position: absolute;
+        margin: 30px;
+        padding: 3px;
+        font-size: larger;
+        cursor: pointer;
+        transition: 0.8s;
+        right: 30px;
+    }
+    .navbarProfile >span {
+        color: white;
+        background-color: rgb(107, 104, 104);
+        padding: 3px;
+        border-radius: 3px;
+        transition: 0.5s;
+    }
+    .navbarProfile >span:hover{
+        background-color:white;
+        color:rgb(125, 124, 129) ;
+    }
+    .navbarIcon >span{
+        margin: 30px;
+        color: rgb(160, 154, 154);
+        padding: 3px;
+        font-size: larger;
+        cursor: pointer;
+        transition: 0.8s;
+    }
+    .navbarIcon >span:hover{
+        color: white;
+        background-color: rgb(107, 104, 104);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding: 3px;
+        border-radius: 3px;
+    
+    }
+    
+    
+    
+    leftbar{
+        background-color: white;
+        grid-area: leftbar;
+    
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    rightbar{
+        background-color: white;
+        grid-area: rightbar;
+    
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    content{
+        background-color: white;
+        grid-area: content;
+    
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
 }
 
 
@@ -154,5 +280,102 @@ content{
         height: 100vh;
         width: 100%;
     }
+
+    navbar{
+        background-color: white;
+        grid-area: navbar;
+        width: 100%;
+    
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+    
+        position: relative;
+    }
+    navbar >h2 {
+        margin-left: 5px;
+        color: rgb(3, 53, 119);
+        
+    }
+    navbar >input{
+        position: absolute;
+        left: 50px;
+        padding: 10px;
+        width: auto;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px 5px;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        transition: 0.5s;
+
+        display: none;
+    }
+    navbar >input:hover{
+        border-bottom: 1px solid black;
+    }
+
+    navbar .fa-magnifying-glass{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        color: rgb(77, 75, 75);
+        top: 30px;
+        left: 150px;
+        font-size: x-large;
+        transition: 0.5s;
+    }
+   navbar .fa-magnifying-glass:hover{
+    color: white;
+    background-color:rgb(125, 124, 129) ;
+    padding: 2px;
+    border-radius: 5px;
+   }
+
+    navbar .navbarIcon{
+        position: absolute;
+        left: 5px;
+        display:none;
+    }
+    
+    navbar .navbarProfile{
+        position: absolute;
+        margin: 30px;
+        padding: 3px;
+        font-size: larger;
+        cursor: pointer;
+        transition: 0.8s;
+        right: 30px;
+    }
+    .navbarProfile >span {
+        color: white;
+        background-color: rgb(107, 104, 104);
+        padding: 3px;
+        border-radius: 3px;
+        transition: 0.5s;
+    }
+    .navbarProfile >span:hover{
+        background-color:white;
+        color:rgb(125, 124, 129) ;
+    }
+    .navbarIcon >span{
+        margin: 30px;
+        color: rgb(160, 154, 154);
+        padding: 3px;
+        font-size: larger;
+        cursor: pointer;
+        transition: 0.8s;
+    }
+    .navbarIcon >span:hover{
+        color: white;
+        background-color: rgb(107, 104, 104);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding: 3px;
+        border-radius: 3px;
+    
+    }
+    
 
 }
