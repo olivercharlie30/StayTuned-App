@@ -65,7 +65,7 @@ navbar .navbarProfile{
     position: absolute;
     margin: 30px;
     padding: 3px;
-    font-size: larger;
+    font-size: x-large;
     cursor: pointer;
     transition: 0.8s;
     right: 30px;
@@ -85,7 +85,7 @@ navbar .navbarProfile{
     margin: 30px;
     color: rgb(160, 154, 154);
     padding: 3px;
-    font-size: larger;
+    font-size:x-large;
     cursor: pointer;
     transition: 0.8s;
 }
