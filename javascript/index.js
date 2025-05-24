@@ -5,6 +5,32 @@ let faComment = document.querySelector("#fa-comment");
 let faBell = document.querySelector("#fa-bell");
 let afterCreateElementEllipsis = document.querySelector(".afterCreateElementEllipsis");
 
+let houseReloadPage = document.querySelector("#house");
+let titleReload = document.querySelector("#titleReload");
+
+
+
+function reloadPage() {
+  window.location.reload();
+  window.location.href = 'index.html';
+}
+houseReloadPage.addEventListener("click", ()=> {
+    reloadPage();
+});
+
+function titleReloadPage() {
+  window.location.reload();
+  window.location.href = 'index.html';
+  titleReloadPage.style.position = "fixed";
+  
+}
+titleReload.addEventListener("click", ()=> {
+    titleReloadPage();
+});
+
+
+
+
 
 
 function scrolly() {
