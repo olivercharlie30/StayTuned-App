@@ -1,11 +1,15 @@
 let ellipsis = document.querySelector("#fa-ellipsis");
 let content = document.querySelector("content");
 let navbar = document.querySelector("navbar");
+let faComment = document.querySelector("#fa-comment");
 let afterCreateElementEllipsis = document.querySelector(".afterCreateElementEllipsis");
 
 
 window.addEventListener("scroll", ()=> {
-    navbar.classList.toggle("sticky", window.scrollY>0);
+    navbar.classList.toggle(window.scrollBy > 0);
+    navbar.style.position = "fixed";
+    navbar.style.padding = "25px";
+    navbar.style.width = "100%";
 
 });
 
@@ -17,9 +21,20 @@ function faEllipsisCreateElement() {
 }
 ellipsis.addEventListener("click", ()=> {
     faEllipsisCreateElement();
-    afterCreateElementEllipsis.classList.toggle("afterCreateElementEllipsis");
+    
 });
 
+
+
+function Comment() {
+  let div = document.createElement("div");
+  div.innerHTML = "this is Create Element rightbar";
+  div.className = "CreateELementComment";
+  navbar.appendChild(div);
+};
+faComment.addEventListener("click", ()=> {
+     Comment();
+});
 
 fetch('https://fakestoreapi.com/products')
   .then(data => {
@@ -34,7 +49,7 @@ fetch('https://fakestoreapi.com/products')
                     <i class="fa-solid fa-xmark"></i>
                   </div>
                   <div class="user">
-                    <img class="userProfile" src="video/pexels-gya-den-768256-2386141.jpg" width="250px"/>
+                    <img class="userProfile" src="python.jpg" width="250px"/>
                     <div class="username"><strong>${values.title}</strong></div>
                   </div>
                  

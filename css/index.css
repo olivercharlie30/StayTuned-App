@@ -34,6 +34,7 @@ navbar{
     align-items: center;
 
     position: relative;
+    
 }
 navbar >h2 {
     margin-left: 10px;
@@ -111,12 +112,24 @@ navbar .CreateELementEllipsis{
     z-index: 100; 
 
 }
+navbar .CreateELementComment{
+    position: absolute; 
+
+    top: 80px;
+    right: 0;
+
+    background-color: rgb(27, 38, 192); 
+    width: 500px;
+    height: 850px;
+    z-index: 100; 
+
+}
 .sticky{
-    position: fixed;
+
     background-color: white;
     grid-area: navbar;
     width: 100%;
-
+    
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
     justify-content:space-between;
@@ -134,14 +147,13 @@ rightbar{
     grid-area: rightbar;
 
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    position: relative;
+    /* position: relative; */
 }
 
 content{
     background-color: white;
     grid-area: content;
-
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 }
 
 .postImageContent{
@@ -387,6 +399,18 @@ content{
         z-index: 100; 
     
     }
+    navbar .CreateELementComment{
+        position: absolute; 
+        top: 80px;
+        right: 0;
+    
+        background-color: rgb(27, 44, 192); 
+        width: 350px;
+        height: 850px;
+        z-index: 100; 
+    
+    }
+    
     
     
     
@@ -534,6 +558,17 @@ content{
         right: 0;
     
         background-color: rgb(192, 27, 27); 
+        width: 350px;
+        height: 850px;
+        z-index: 100; 
+    
+    }
+    navbar .CreateELementComment{
+        position: absolute; 
+        top: 80px;
+        right: 0;
+    
+        background-color: rgb(27, 57, 192); 
         width: 350px;
         height: 850px;
         z-index: 100; 
