@@ -10,6 +10,22 @@ let titleReload = document.querySelector("#titleReload");
 
 
 
+
+
+
+function countLike(){
+  let countReact = document.querySelector("#countReact");
+  let like = document.querySelector(".like");
+  let count =0;
+   count += 1;
+
+   countReact.innerHTML = count;
+   like.innerHTML = `<i class="fa-regular fa-thumbs-up"></i>Liked</span>`;
+   like.style.color = "Blue";
+}
+
+
+
 function reloadPage() {
   window.location.reload();
   window.location.href = 'index.html';
@@ -18,17 +34,16 @@ houseReloadPage.addEventListener("click", ()=> {
     reloadPage();
 });
 
+
+
 function titleReloadPage() {
   window.location.reload();
   window.location.href = 'index.html';
   titleReloadPage.style.position = "fixed";
-  
 }
 titleReload.addEventListener("click", ()=> {
     titleReloadPage();
 });
-
-
 
 
 
@@ -105,12 +120,12 @@ fetch('https://fakestoreapi.com/products')
                       <span class="readMoreBtn"><i class="fa-solid fa-angles-right"></i> See More....</span>
                     <img class="postImage" src="${values.image}" alt="error image"/>
                     <div class="countLike">
-                      <span>100k</span>
+                      <span id="countReact"></span>
                       <span>1.5k comments</span>
                       <span>350 shares</span>
                     </div>
                     <div class="likeSection">
-                      <span class="like"><i class="fa-regular fa-thumbs-up"></i>Like</span>
+                      <span class="like" onClick="countLike()"><i class="fa-regular fa-thumbs-up"></i>Like</span>
                       <span class="comment"><i class="fa-regular fa-comment"></i>Comments</span>
                       <span class="share"><i class="fa-solid fa-share"></i>share</span>
                     </div>

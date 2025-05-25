@@ -7,7 +7,18 @@
 </head>
 <body>
     <div>
+        <label for="files">select Multiple files</label>
+        <input type="file" id="files" multiple="multiple" accept="image/jpeg, image/png, image,jpg"/>
         
     </div>
+    <script>
+        document.querySelector("#files").addEventListener("change", (e)=> {
+            if(window.file && window.FileReader && window.FileList && window.Blob) {
+                console.log(file);
+            }else {
+                alert(" your browser does not support the file Api");
+            }
+        });
+    </script>
 </body>
 </html>
