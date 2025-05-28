@@ -76,7 +76,7 @@ ellipsis.addEventListener("click", ()=> {
 
 function CommentCreteElement() {
   let div = document.createElement("div");
-  div.innerHTML = "this is Create Element Comment";
+  div.innerHTML = `<h3>{values.id}</h3>`;
   div.className = "CreateELementComment";
   navbar.appendChild(div);
 };
@@ -120,7 +120,7 @@ fetch('https://fakestoreapi.com/products')
                       <span class="readMoreBtn"><i class="fa-solid fa-angles-right"></i> See More....</span>
                     <img class="postImage" src="${values.image}" alt="error image"/>
                     <div class="countLike">
-                      <span id="countReact"></span>
+                      <span id="countReact">10k</span>
                       <span>1.5k comments</span>
                       <span>350 shares</span>
                     </div>
@@ -138,3 +138,6 @@ fetch('https://fakestoreapi.com/products')
   }).catch((error)=>{
     console.log(error);
   })
+
+
+ 
