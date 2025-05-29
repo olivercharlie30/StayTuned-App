@@ -131,11 +131,7 @@ navbar .CreateELementBell{
     top: 80px;
     right: 0;
 
-<<<<<<< HEAD
     background-color: rgb(176, 192, 27); 
-=======
-    background-color: rgb(167, 192, 27); 
->>>>>>> 24dba79707c2be71edda4ff2fefcb672ddc762a5
     width: 500px;
     height: 850px;
     z-index: 100; 
