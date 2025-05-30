@@ -127,16 +127,9 @@ navbar .CreateELementComment{
 }
 navbar .CreateELementBell{
     position: absolute; 
-
     top: 80px;
     right: 0;
-
-<<<<<<< HEAD
     background-color: rgb(176, 192, 27); 
-=======
-    background-color: white; 
-    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
->>>>>>> 2311ae5a1bc832a8cc04e5250eeba60f070924b5
     width: 500px;
     height: 850px;
     z-index: 100; 
