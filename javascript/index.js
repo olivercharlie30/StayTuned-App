@@ -1,3 +1,6 @@
+import Name from "./database.js";
+
+
 let ellipsis = document.querySelector("#fa-ellipsis");
 let content = document.querySelector("content");
 let navbar = document.querySelector("navbar");
@@ -76,7 +79,15 @@ ellipsis.addEventListener("click", ()=> {
 
 function CommentCreteElement() {
   let div = document.createElement("div");
+<<<<<<< HEAD
   div.innerHTML = `<h3>{values.id}</h3>`;
+=======
+  div.innerHTML = `<p>Must have a background for building responsive websites using React js.
+                    Must have a basic knowledge of RESTFul applications.
+                    Must have a background or understanding with Javascript and Typescript
+                    Must have a good understanding of how Full Stack applications work
+                    Fresh graduates are welcome to apply</p>`;
+>>>>>>> 2311ae5a1bc832a8cc04e5250eeba60f070924b5
   div.className = "CreateELementComment";
   navbar.appendChild(div);
 };
@@ -87,11 +98,15 @@ faComment.addEventListener("click", ()=> {
 
 function fabellCreateElement() {
    let div = document.createElement("div");
+<<<<<<< HEAD
   div.innerHTML = `<p>Must have a background for building responsive websites using React js.
 Must have a basic knowledge of RESTFul applications.
 Must have a background or understanding with Javascript and Typescript
 Must have a good understanding of how Full Stack applications work
 Fresh graduates are welcome to apply</p>`;
+=======
+  div.innerHTML = ` `;
+>>>>>>> 2311ae5a1bc832a8cc04e5250eeba60f070924b5
   div.className = "CreateELementBell";
   navbar.appendChild(div);
 };
