@@ -1,0 +1,176 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+background-color: whitesmoke;
+}
+.signinContainer{
+    display: grid;
+    grid-template-rows:200px 2fr 200px;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-template-areas:"box1 box1 box1"
+                        "box2 box2 box2"
+                        "box3 box3 box3";
+
+    position: relative;
+
+}
+.signinTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(31, 89, 212);
+    font-size: xx-large;
+    grid-area: box1;
+}
+.formContainer{
+    grid-area: box2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;  */
+    
+}
+.formContainer > form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+    padding: 30px 5px;
+    border-radius: 15px;
+    background-color: white;
+    gap: 5px;
+}
+form > h2{
+    font-weight: 700;
+}
+form>p{
+    color: rgb(71, 69, 69);
+}
+form > span{
+    width: 400px;
+    background-color: rgb(126, 121, 121);
+    padding: 1px;
+    margin: 10px 10px;
+}
+.input > input{
+    padding: 10px 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.input > input:hover{
+    border: 1px solid rgb(47, 241, 47);
+}
+label{
+    margin: 1px;
+}
+label:hover{
+    text-decoration: underline;
+}
+form .date > select{
+    padding: 7px 7px;
+    width: 125px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    color:rgb(63, 59, 59) ;
+    margin: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+form .date > select:hover{
+    border: 1px solid rgb(47, 241, 47);
+}
+form .gender > select{
+    width: 100px;
+    padding: 5px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    color:rgb(63, 59, 59) ;
+    margin: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+form .gender > select:hover{
+    border: 1px solid rgb(47, 241, 47);
+}
+form .createAcountDiv {
+    display: flex;
+
+}
+
+form .createAcountDiv > input{
+    display: flex;
+    padding: 10px 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    cursor: pointer;
+    margin: 2px;
+    transition: 0.5s;
+}
+form .createAcountDiv > input:hover{
+   border: 1px solid rgb(47, 241, 47);
+}
+form .plink{
+    font-size: small;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    color: rgb(92, 88, 88);
+    padding: 3px 3px;
+}
+form .signUp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signUp > button{
+    background-color: rgb(16, 175, 16);
+    color: white;
+    border: none;
+    padding: 5px 5px;
+    width: 200px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.signUp > button:hover{
+    background-color: rgb(37, 128, 37);
+}
+form .alHaveAcount{
+    color: rgb(35, 115, 236);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+form .alHaveAcount:hover{
+    text-decoration: underline;
+}
+    
+.footerSignin {
+    grid-area: box3;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+ 
+}
+.footerSignin .footerText{
+    font-size: small;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
