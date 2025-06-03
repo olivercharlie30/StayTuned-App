@@ -1,4 +1,7 @@
-
+<?php
+  include_once("config.php");
+  include_once("phpFunction.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +28,7 @@
             </div>
             <label>Birthday ?</label>
             <div class="date">
-                <select id="month" name="months">
+                <select id="month" name="month">
                     <option value="Jan">Jan</option>
                     <option value="Feb">Feb</option>
                     <option value="Mar">Mar</option>
@@ -39,7 +42,7 @@
                     <option value="Nov">Nov</option>
                     <option value="Dec">Dec</option>
                 </select>
-                <select id="day" name="days">
+                <select id="day" name="day">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -128,7 +131,7 @@
                     <button name="signUp">Sign Up</button>
                 </div>
                
-                <a class="alHaveAcount" id="alHaveAcount" href="login.html">Already have an account?</a>
+                <a class="alHaveAcount" id="alHaveAcount" href="login.php">Already have an account?</a>
             </div>
         </form>
     </div>

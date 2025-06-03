@@ -1,4 +1,8 @@
-
+<?php 
+  session_start();
+  require_once("config.php");
+   require_once("phpFunction.php");
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +26,7 @@
         </div>
         <div class="loginContent">
             <form action="phpFunction.php" method="POST">
-                <input type="text" name="username" placeholder="Email or phone number" required/>
+                <input type="text" name="username" placeholder="Username" required/>
                 <input type="password" name="password" placeholder="Password" required/>
                 <button name="login" id="btnLogin">Login</button>
                 <a href="#">Forgot password?</a>

@@ -14,9 +14,6 @@ let titleReload = document.querySelector("#titleReload");
 let btnCreateAcount = document.querySelector("#btnCreateAcount");
 
 
-
-
-
 // function popUpSingin() {
 //   Swal.fire({
 //     title: "Good job!",
@@ -32,7 +29,7 @@ let btnCreateAcount = document.querySelector("#btnCreateAcount");
 //   window.location.href = "singin.html";
 // })
 function redirecetSignin(){
-  window.location.href = "signin.html";
+  window.location.href = "signin.php";
 }
 
 
@@ -51,7 +48,7 @@ function countLike(){
 
 function reloadPage() {
   window.location.reload();
-  window.location.href = 'index.html';
+  window.location.href = 'index.php';
 }
 houseReloadPage.addEventListener("click", ()=> {
     reloadPage();
@@ -61,7 +58,7 @@ houseReloadPage.addEventListener("click", ()=> {
 
 function titleReloadPage() {
   window.location.reload();
-  window.location.href = 'index.html';
+  window.location.href = 'index.php';
   titleReloadPage.style.position = "fixed";
 }
 titleReload.addEventListener("click", ()=> {

@@ -1,4 +1,8 @@
-
+<?php
+session_start();
+require_once("config.php");
+require_once("phpFunction.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +30,7 @@
                 <span id="fa-ellipsis"><i class="fa-solid fa-ellipsis"></i></span>
                 <span id="fa-comment"><i class="fa-solid fa-comment"></i></span>
                 <span id="fa-bell"><i class="fa fa-bell"></i></span>
+                <a href="user.php"><i class="fa-solid fa-user"></i></a>
             </div>
         </navbar>
         <leftbar></leftbar>

@@ -1,3 +1,19 @@
+<?php 
+  session_start();
+  require_once("config.php");
+  require_once("phpFunction.php");
+
+
+  if(isset($_SESSION['username'])){
+     $user = $_SESSION['username'];
+     $query = mysqli_query($conn, "SELECT useracount. * FROM `useracount` WHERE useracount.firstName = '$user'");
+     while($row = mysqli_fetch_array($query)){  
+     }
+  }
+
+  
+  
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,10 +26,10 @@
         
         <div class="twoCulomnContentBox">
             <div class="Profile">
-                <img class="bigLogoImage" src="/python.jpg" alt="image error" width="700px"/>
+                <img class="bigLogoImage" src="tryandtry.jpg" alt="image error" width="700px"/>
                 <div class="ProfileLogoImage">
-                    <img class="loginImage" src="/userimage-removebg-preview.png" alt="image error " width="100px"/> 
-                    <h3 class="userNameAcount">Juan Dela Cruz</h3>
+                    <img class="loginImage" src="userimage-removebg-preview.png" alt="image error " width="100px"/> 
+                    <h5 class="userNameAcount"><?php echo $_SESSION['username'];?></h5>
                     <div class="followersCount">
                         <p>5.1k followers</p>
                         <p>1k following</p>
@@ -22,19 +38,22 @@
                 <span class="lineborder"></span>
                 <div class="ulContent">
                     <ul>
-                        <li>Posts</li>
+                        <li><a href="index.php">HOME</a></li>
                         <li>About</li>
                         <li>Reels</li>
                         <li>Photos</li>
                         <li>Videos</li>
                         <li>Groups</li>
                         <li>More</li>
+                        <li><a href="logout.php">logout</a></li>
                     </ul>
                 </div>
             </div>
 
 
-            <div class="fourRowslayOutBox"></div>
+            <div class="fourRowslayOutBox">
+
+            </div>
         </div>
         
     </div>
