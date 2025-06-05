@@ -26,9 +26,13 @@
         
         <div class="twoCulomnContentBox">
             <div class="Profile">
-                <img class="bigLogoImage" src="tryandtry.jpg" alt="image error" width="700px"/>
+                <img class="bigLogoImage" id="bigLogoImage" src="/image/tryandtry.jpg" alt="image error" width="700px"/>
+                 <!-- <div class="editCoverPhoto">
+                  <input type="file" id="editCoverPhoto" accept=".jpg, .jpeg, png" onchange="ediCoverPhoto(event)">
+                  <span><i class="fa-solid fa-camera">Edit Cover Photo</i></span>
+                 </div> -->
                 <div class="ProfileLogoImage">
-                    <img class="loginImage" src="userimage-removebg-preview.png" alt="image error " width="100px"/> 
+                    <img class="loginImage" src="/image/userimage-removebg-preview.png" alt="image error " width="100px"/> 
                     <h5 class="userNameAcount"><?php echo $_SESSION['username'];?></h5>
                     <div class="followersCount">
                         <p>5.1k followers</p>
@@ -38,14 +42,14 @@
                 <span class="lineborder"></span>
                 <div class="ulContent">
                     <ul>
-                        <li><a href="index.php">HOME</a></li>
+                        <li><a href="index.html">HOME</a></li>
                         <li>About</li>
                         <li>Reels</li>
                         <li>Photos</li>
                         <li>Videos</li>
                         <li>Groups</li>
                         <li>More</li>
-                        <li><a href="logout.php">logout</a></li>
+                        <li><a href="logout.html">logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -58,7 +62,11 @@
         
     </div>
 
-    <script></script>
+    <script>
+        function editCoverPhoto() {
+            document.querySelector("#bigLogoImage").src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
     <style>
         *{
             margin: 0;

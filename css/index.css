@@ -87,7 +87,7 @@ navbar .navbarProfile{
 }
 .navbarIcon >span{
     margin: 30px;
-    color: rgb(160, 154, 154);
+    color: rgb(127, 133, 132);
     padding: 3px;
     font-size:x-large;
     cursor: pointer;
@@ -173,6 +173,10 @@ content{
     align-items: center;
     gap: 10px;
 }
+
+
+
+
 
 .postImageContent{
     font-family: Arial, Helvetica, sans-serif;

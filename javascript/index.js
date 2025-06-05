@@ -48,7 +48,7 @@ function countLike(){
 
 function reloadPage() {
   window.location.reload();
-  window.location.href = 'index.php';
+  window.location.href = 'index.html';
 }
 houseReloadPage.addEventListener("click", ()=> {
     reloadPage();
@@ -58,7 +58,7 @@ houseReloadPage.addEventListener("click", ()=> {
 
 function titleReloadPage() {
   window.location.reload();
-  window.location.href = 'index.php';
+  window.location.href = 'index.html';
   titleReloadPage.style.position = "fixed";
 }
 titleReload.addEventListener("click", ()=> {
@@ -130,7 +130,7 @@ fetch('https://fakestoreapi.com/products')
                     <i class="fa-solid fa-xmark"></i>
                   </div>
                   <div class="user">
-                    <img class="userProfile" src="python.jpg" width="250px"/>
+                    <img class="userProfile" src="/image/python.jpg" width="250px"/>
                     <div class="username"><strong>${values.title}</strong></div>
                   </div>
                  
