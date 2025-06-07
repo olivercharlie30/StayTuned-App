@@ -1,3 +1,19 @@
+<?php 
+  session_start();
+  require_once("config.php");
+  require_once("phpFunction.php");
+
+
+  if(isset($_SESSION['username'])){
+     $user = $_SESSION['username'];
+     $query = mysqli_query($conn, "SELECT useracount. * FROM `useracount` WHERE useracount.firstName = '$user'");
+     while($row = mysqli_fetch_array($query)){  
+     }
+  }
+
+  
+  
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,19 +22,138 @@
     <title>Profile User</title>
 </head>
 <body>
-    <div>
-        <label for="files">select Multiple files</label>
-        <input type="file" id="files" multiple="multiple" accept="image/jpeg, image/png, image,jpg"/>
+    <div class="userContainer">
+        
+        <div class="twoCulomnContentBox">
+            <div class="Profile">
+                <img class="bigLogoImage" id="bigLogoImage" src="/image/tryandtry.jpg" alt="image error" width="700px"/>
+                 <!-- <div class="editCoverPhoto">
+                  <input type="file" id="editCoverPhoto" accept=".jpg, .jpeg, png" onchange="ediCoverPhoto(event)">
+                  <span><i class="fa-solid fa-camera">Edit Cover Photo</i></span>
+                 </div> -->
+                <div class="ProfileLogoImage">
+                    <img class="loginImage" src="/image/userimage-removebg-preview.png" alt="image error " width="100px"/> 
+                    <h5 class="userNameAcount"><?php echo $_SESSION['username'];?></h5>
+                    <div class="followersCount">
+                        <p>5.1k followers</p>
+                        <p>1k following</p>
+                    </div>
+                </div>
+                <span class="lineborder"></span>
+                <div class="ulContent">
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li>About</li>
+                        <li>Reels</li>
+                        <li>Photos</li>
+                        <li>Videos</li>
+                        <li>Groups</li>
+                        <li>More</li>
+                        <li><a href="logout.html">logout</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="fourRowslayOutBox">
+
+            </div>
+        </div>
         
     </div>
+
     <script>
-        document.querySelector("#files").addEventListener("change", (e)=> {
-            if(window.file && window.FileReader && window.FileList && window.Blob) {
-                console.log(file);
-            }else {
-                alert(" your browser does not support the file Api");
-            }
-        });
+        function editCoverPhoto() {
+            document.querySelector("#bigLogoImage").src = URL.createObjectURL(event.target.files[0]);
+        }
     </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .userContainer{
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-template-areas: "box1"
+                                 "box2";
+
+            height: 100vh;
+            width: 100%;
+        }
+        .twoCulomnContentBox{
+            grid-area: box1;
+            background-color: white;
+            position: relative;
+            padding-bottom:30px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        .twoCulomnContentBox .Profile{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .Profile .bigLogoImage{
+            border-radius: 10px;
+            width: 700px;
+            height: 350px;
+            cursor: pointer;
+        }
+        .ProfileLogoImage{
+            display: flex;
+            /* background-color: white; */
+            color: black;
+
+            position: absolute;
+            left: 640px;
+            bottom: 10px;
+            width: 700px;
+        }
+        .ProfileLogoImage .loginImage{
+            position: absolute;
+            bottom: 45px;
+            cursor: pointer;
+        }
+        .Profile .userNameAcount{
+            font-size: xx-large;
+            position: absolute;
+            bottom: 50px;
+            left: 125px;
+        }
+        .Profile .followersCount{
+            display: flex;
+            gap: 10px;
+            position: absolute;
+            bottom: 30px;
+            left: 130px;
+            font-size: small;
+            font-weight: 700;
+        }
+       .ulContent{
+        position: absolute;
+        bottom: 0;
+        cursor: pointer;
+        
+       }
+       .ulContent > ul{
+        display: flex;
+        gap: 50px;
+        list-style: none;
+        font-weight:700;
+        font-size: x-large;
+        padding: 3px 3px;
+       }
+
+
+
+
+
+        .fourRowslayOutBox{
+            grid-area: box2;
+            background-color: red;
+            z-index: 100;
+        }
+    </style>
 </body>
 </html>

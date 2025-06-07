@@ -11,9 +11,26 @@ let afterCreateElementEllipsis = document.querySelector(".afterCreateElementElli
 let houseReloadPage = document.querySelector("#house");
 let titleReload = document.querySelector("#titleReload");
 
+let btnCreateAcount = document.querySelector("#btnCreateAcount");
 
 
+// function popUpSingin() {
+//   Swal.fire({
+//     title: "Good job!",
+//     text: "You clicked the button!",
+//     icon: "success"
+//   });
+  
+//}
 
+
+ //REDIRECT TO SIGNIN
+// btnCreateAcount.addEventListener("click", ()=> {
+//   window.location.href = "singin.html";
+// })
+function redirecetSignin(){
+  window.location.href = "signin.php";
+}
 
 
 function countLike(){
@@ -135,7 +152,7 @@ fetch('https://fakestoreapi.com/products')
                     <i class="fa-solid fa-xmark"></i>
                   </div>
                   <div class="user">
-                    <img class="userProfile" src="python.jpg" width="250px"/>
+                    <img class="userProfile" src="/image/python.jpg" width="250px"/>
                     <div class="username"><strong>${values.title}</strong></div>
                   </div>
                  
