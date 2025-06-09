@@ -27,12 +27,21 @@
         <div class="userContent">
             <div class="Profile">
                 <img class="bigLogoImage" id="bigLogoImage" src="/image/tryandtry.jpg" alt="profile image" width="700px"/>
-                    
+
+                           
+                      <!--********************** CHANGES PROFILE LOGO  PICTURE ********************-->
                    <label class="inputFile" for="inputFile"><i class="fa-solid fa-camera"></i>Edit Cover Photo</label>
                   <input id="inputFile" type="file" accept="image/jpeg, image/png, image/jpg"/>
 
+
+                      <!--********************** CHANGES PROFILE PICTURE ********************-->
+                  <label class="inputProfileLabel" for="inputProfile"><i class="fa-solid fa-camera"></i></label>
+                  <input class="inputProfileInput" id="inputProfile" type="file" accept="image/jpeg, image/png, image/jpg"/>
+
                 <div class="ProfileLogoImage">
                     <img class="loginImage" src="/image/userimage-removebg-preview.png" alt="image error " width="100px"/> 
+              
+            
                     <h5 class="userNameAcount"><?php echo $_SESSION['username'];?></h5>
                     <div class="followersCount">
                         <p>5.1k followers</p>
@@ -99,7 +108,7 @@
         .Profile .bigLogoImage{
             border-radius: 3px;
             width: 100%;
-            height: 500px;
+            height: 550px;
             cursor: pointer;
 
             position: relative;
@@ -134,11 +143,36 @@
             bottom: 250px;
             width: 700px;
         }
+
+        .inputProfileLabel{
+            font-size: larger;
+            color: black;
+            position: absolute;
+            left: 110px;
+            top: 500px;
+            background-color: white;
+            padding: 5px 5px;
+            border-radius: 30px;
+            z-index: 10;
+            transition: 0.5s;
+        }
+        
+        .inputProfileLabel:hover{
+            background-color: red;
+            color: white;
+          
+        }
+        .inputProfileInput{
+            display: none;
+            
+        }
         .ProfileLogoImage .loginImage{
             position: absolute;
             bottom:100px;
             cursor: pointer;
         }
+        
+
         .Profile .userNameAcount{
             font-size: xx-large;
             position: absolute;
@@ -149,7 +183,7 @@
             display: flex;
             gap: 10px;
             position: absolute;
-            bottom: 50px;
+            bottom: 30px;
             left: 110px;
             font-size: large;
             font-weight: 700;

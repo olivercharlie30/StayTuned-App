@@ -14,20 +14,9 @@ let titleReload = document.querySelector("#titleReload");
 let btnCreateAcount = document.querySelector("#btnCreateAcount");
 
 
-// function popUpSingin() {
-//   Swal.fire({
-//     title: "Good job!",
-//     text: "You clicked the button!",
-//     icon: "success"
-//   });
-  
-//}
 
 
- //REDIRECT TO SIGNIN
-// btnCreateAcount.addEventListener("click", ()=> {
-//   window.location.href = "singin.html";
-// })
+
 function redirecetSignin(){
   window.location.href = "signin.php";
 }
