@@ -19,18 +19,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Profile User</title>
 </head>
 <body>
     <div class="userContainer">
+        <div class="userNavbar"></div>
         
-        <div class="twoCulomnContentBox">
+        <div class="userContent">
             <div class="Profile">
-                <img class="bigLogoImage" id="bigLogoImage" src="/image/tryandtry.jpg" alt="image error" width="700px"/>
-                 <!-- <div class="editCoverPhoto">
-                  <input type="file" id="editCoverPhoto" accept=".jpg, .jpeg, png" onchange="ediCoverPhoto(event)">
-                  <span><i class="fa-solid fa-camera">Edit Cover Photo</i></span>
-                 </div> -->
+                <img class="bigLogoImage" id="bigLogoImage" src="/image/tryandtry.jpg" alt="profile image" width="700px"/>
+                    
+                   <label class="inputFile" for="inputFile"><i class="fa-solid fa-camera"></i>Edit Cover Photo</label>
+                  <input id="inputFile" type="file" accept="image/jpeg, image/png, image/jpg"/>
+
                 <div class="ProfileLogoImage">
                     <img class="loginImage" src="/image/userimage-removebg-preview.png" alt="image error " width="100px"/> 
                     <h5 class="userNameAcount"><?php echo $_SESSION['username'];?></h5>
@@ -40,22 +42,11 @@
                     </div>
                 </div>
                 <span class="lineborder"></span>
-                <div class="ulContent">
-                    <ul>
-                        <li><a href="index.html">HOME</a></li>
-                        <li>About</li>
-                        <li>Reels</li>
-                        <li>Photos</li>
-                        <li>Videos</li>
-                        <li>Groups</li>
-                        <li>More</li>
-                        <li><a href="logout.html">logout</a></li>
-                    </ul>
-                </div>
             </div>
 
+           <div class="userLeft"></div>
 
-            <div class="fourRowslayOutBox">
+            <div class="userRight">
 
             </div>
         </div>
@@ -63,9 +54,13 @@
     </div>
 
     <script>
-        function editCoverPhoto() {
-            document.querySelector("#bigLogoImage").src = URL.createObjectURL(event.target.files[0]);
+        let bigLogoImage = document.querySelector("#bigLogoImage");
+        let inputFile = document.querySelector("#inputFile");
+
+        inputFile.onchange = function() {
+            bigLogoImage.src = URL.createObjectURL(inputFile.files[0]);
         }
+
     </script>
     <style>
         *{
@@ -75,85 +70,115 @@
         }
         .userContainer{
             display: grid;
-            grid-template-rows: 1fr 1fr;
-            grid-template-areas: "box1"
-                                 "box2";
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows:30px 1fr;
+            grid-auto-flow: dense;
+
+            grid-template-areas: "navbar navbar navbar"
+                                "leftbar content rightbar";
 
             height: 100vh;
             width: 100%;
+             
         }
-        .twoCulomnContentBox{
-            grid-area: box1;
+        .userNavbar{
+            grid-area: navbar;
+    
+        }
+        .userContent{
+            grid-area: content;
+
             background-color: white;
             position: relative;
             padding-bottom:30px;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         }
-        .twoCulomnContentBox .Profile{
+        .userContent .Profile{
             display: flex;
             justify-content: center;
             align-items: center;
         }
         .Profile .bigLogoImage{
-            border-radius: 10px;
-            width: 700px;
-            height: 350px;
+            border-radius: 3px;
+            width: 100%;
+            height: 500px;
             cursor: pointer;
+
+            position: relative;
+        }
+        .inputFile{
+            display: flex;
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+             padding: 10px 5px;
+             border-radius: 10px;
+             font-weight:300;
+             cursor: pointer;
+
+
+            position: absolute;
+            top: 450px;
+            right: 10px;
+        }
+        .inputFile > i{
+            margin-right: 5px;
+            color: rgba(230, 17, 17, 0.877);
+        }
+        #inputFile{
+            display: none;
         }
         .ProfileLogoImage{
             display: flex;
-            /* background-color: white; */
-            color: black;
+          
 
             position: absolute;
-            left: 640px;
-            bottom: 10px;
+            /* left: 640px; */
+            bottom: 250px;
             width: 700px;
         }
         .ProfileLogoImage .loginImage{
             position: absolute;
-            bottom: 45px;
+            bottom:100px;
             cursor: pointer;
         }
         .Profile .userNameAcount{
             font-size: xx-large;
             position: absolute;
-            bottom: 50px;
+            bottom: 250px;
             left: 125px;
         }
         .Profile .followersCount{
             display: flex;
             gap: 10px;
             position: absolute;
-            bottom: 30px;
-            left: 130px;
-            font-size: small;
+            bottom: 50px;
+            left: 110px;
+            font-size: large;
             font-weight: 700;
         }
-       .ulContent{
-        position: absolute;
-        bottom: 0;
-        cursor: pointer;
-        
-       }
-       .ulContent > ul{
-        display: flex;
-        gap: 50px;
-        list-style: none;
-        font-weight:700;
-        font-size: x-large;
-        padding: 3px 3px;
-       }
+    
 
 
 
 
-
-        .fourRowslayOutBox{
-            grid-area: box2;
+/* 
+        .userLeft{
+            grid-area: left;
             background-color: red;
-            z-index: 100;
+            height: 100vh;
+
         }
+        .userRight{
+            grid-area: right;
+            background-color: green;
+            height: 100vh;
+        }
+        
+        */
+   
+ 
+ 
+
     </style>
 </body>
 </html>
