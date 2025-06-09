@@ -45,10 +45,30 @@ function countLike(){
 }
 
 
+function loadPage(){
+  setTimeout(() => {
+      window.addEventListener("load", ()=> {
+      const loader = document.querySelector(".loader");
+
+      loader.classList.add("loader-hidden");
+      loader.addEventListener("transitionend",()=> {
+      document.body.removeChild("loader");
+    });
+  });  
+  }, 100);
+}
+loadPage();
+
+
+
 
 function reloadPage() {
-  window.location.reload();
-  window.location.href = 'index.html';
+  setTimeout(() => {
+      window.location.reload();
+      window.location.href = 'index.html';
+    
+  }, 100);
+
 }
 houseReloadPage.addEventListener("click", ()=> {
     reloadPage();
@@ -57,9 +77,11 @@ houseReloadPage.addEventListener("click", ()=> {
 
 
 function titleReloadPage() {
-  window.location.reload();
-  window.location.href = 'index.html';
-  titleReloadPage.style.position = "fixed";
+  setTimeout(()=> {
+    window.location.reload();
+    window.location.href = 'index.html';
+    titleReloadPage.style.position = "fixed";
+  },100);
 }
 titleReload.addEventListener("click", ()=> {
     titleReloadPage();

@@ -49,8 +49,9 @@ position: relative;
     width: 400px;
     height: 370px;
     border-radius:10px 10px;
-    margin-top: 180px;
+    margin-top: 50px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
+    z-index: 100;
 
 }
 .loginContent > form{
@@ -114,7 +115,7 @@ form #btnCreateAcount:hover{
 }
 .createpPageparagraph{
     position: absolute;
-    bottom: 320px;
+    bottom: 160px;
     color: rgba(99, 98, 98, 0.993);
 }
 .footerContent{
@@ -127,7 +128,7 @@ form #btnCreateAcount:hover{
     width: 100%;
     position: absolute;
     bottom: 0;
-    padding: 30px;
+    padding: 15px;
     font-size: small;
     text-align: start;
     color: rgba(99, 98, 98, 0.993);

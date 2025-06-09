@@ -1,7 +1,7 @@
 
 
 
-//EXAMPLE DATABASEs
+//EXAMPLE 
 const people = [
     {name:'Nami joran', gender:'female', age: 25, address:'manila city'},
     {name:'robin hood', gender:'male', age: 20, address:'caloocan city'},
