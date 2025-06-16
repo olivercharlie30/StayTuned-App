@@ -26,7 +26,7 @@
         
         <div class="userContent">
             <div class="Profile">
-                <img class="bigLogoImage" id="bigLogoImage" src="/image/tryandtry.jpg" alt="profile image" width="700px"/>
+                <img class="bigLogoImage" id="bigLogoImage" src="image/tryandtry.jpg" alt="profile image" width="700px"/>
 
                            
                       <!--********************** CHANGES PROFILE LOGO  PICTURE ********************-->
@@ -39,7 +39,7 @@
                   <input class="inputProfileInput" id="inputProfile" type="file" accept="image/jpeg, image/png, image/jpg"/>
 
                 <div class="ProfileLogoImage">
-                    <img class="loginImage" src="/image/userimage-removebg-preview.png" alt="image error " width="100px"/> 
+                    <img class="loginImage" id="loginImage" src="image/userimage-removebg-preview.png" alt="image error " width="100px"/> 
               
             
                     <h5 class="userNameAcount"><?php echo $_SESSION['username'];?></h5>
@@ -47,6 +47,7 @@
                         <p>5.1k followers</p>
                         <p>1k following</p>
                     </div>
+                    <a href="index.php">dashboard</a>
                 </div>
                 <span class="lineborder"></span>
             </div>
@@ -63,7 +64,17 @@
     <script>
         let bigLogoImage = document.querySelector("#bigLogoImage");
         let inputFile = document.querySelector("#inputFile");
+        let inputProfile = document.querySelector("#inputProfile");
+        let loginImage = document.querySelector("#loginImage");
 
+
+                  //*************** CHANGE PROFILE IMAGE **************************
+        inputProfile.onchange = function() {
+            loginImage.src = URL.createObjectURL(inputProfile.files[0]);
+        }
+
+
+            //************************* CHANGE BIG PROFILE IMAGE ***********************    
         inputFile.onchange = function() {
             bigLogoImage.src = URL.createObjectURL(inputFile.files[0]);
         }
@@ -110,6 +121,9 @@
             width: 100%;
             height: 550px;
             cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             position: relative;
         }
@@ -119,13 +133,19 @@
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
              padding: 10px 5px;
              border-radius: 10px;
-             font-weight:300;
+             font-weight:600;
              cursor: pointer;
+             transition: 0.5s;
 
 
             position: absolute;
             top: 450px;
             right: 10px;
+        }
+        .inputFile:hover{
+            background-color: rgb(19, 19, 161);
+            color: white;
+            font-weight: 600;
         }
         .inputFile > i{
             margin-right: 5px;
@@ -136,12 +156,15 @@
         }
         .ProfileLogoImage{
             display: flex;
-          
+             
 
             position: absolute;
             /* left: 640px; */
             bottom: 250px;
             width: 700px;
+        }
+        .ProfileLogoImage .loginImage{
+            border-radius: 50px;
         }
 
         .inputProfileLabel{
@@ -149,7 +172,7 @@
             color: black;
             position: absolute;
             left: 110px;
-            top: 500px;
+            top: 550px;
             background-color: white;
             padding: 5px 5px;
             border-radius: 30px;
@@ -168,7 +191,7 @@
         }
         .ProfileLogoImage .loginImage{
             position: absolute;
-            bottom:100px;
+            bottom:40px;
             cursor: pointer;
         }
         
@@ -176,7 +199,7 @@
         .Profile .userNameAcount{
             font-size: xx-large;
             position: absolute;
-            bottom: 250px;
+            bottom: 60px;
             left: 125px;
         }
         .Profile .followersCount{

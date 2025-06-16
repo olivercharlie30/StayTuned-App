@@ -1,4 +1,9 @@
+<?php
+  session_start();
+  require_once("config.php");
+   require_once("phpFunction.php");
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,23 +25,22 @@
                 <span><i class="fa fa-video"></i></span>
                 <span><i class="fa fa-user-group"></i></span>
                 <span><i class="fa fa-store"></i></span>
+                <span><i class="fa-solid fa-user"></i><?php echo $_SESSION['username'];?></span>
             </div>
     
             <div class="navbarProfile">
                 <span id="fa-ellipsis"><i class="fa-solid fa-ellipsis"></i></span>
                 <span id="fa-comment"><i class="fa-solid fa-comment"></i></span>
                 <span id="fa-bell"><i class="fa fa-bell"></i></span>
-                <a href="user.html"><i class="fa-solid fa-user"></i></a>
+                <a href="user.php"><i class="fa-solid fa-user"></i></a>
             </div>
         </navbar>
         <leftbar></leftbar>
         <rightbar></rightbar>
         <content>
-<<<<<<< HEAD
-            <div class="loader"></div>
-=======
-      
->>>>>>> 7753733ae3167f74176fad0678fd2f929a7b8b6e
+
+            <!-- <div class="loader"></div> -->
+
         </content>
     </div>
 

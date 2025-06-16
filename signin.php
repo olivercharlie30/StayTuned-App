@@ -131,7 +131,7 @@
                     <button name="signUp">Sign Up</button>
                 </div>
                
-                <a class="alHaveAcount" id="alHaveAcount" href="login.html">Already have an account?</a>
+                <a class="alHaveAcount" id="alHaveAcount" href="login.php">Already have an account?</a>
             </div>
         </form>
     </div>
