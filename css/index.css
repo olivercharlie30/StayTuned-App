@@ -12,7 +12,7 @@ background-color: whitesmoke;
 .container{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 80px 2fr;
+    grid-template-rows: auto 1fr auto;
     grid-auto-flow: dense;
 
     grid-template-areas: "navbar navbar navbar"
@@ -37,7 +37,7 @@ navbar{
     
 }
 navbar >h2 {
-    margin-left: 10px;
+    margin-left: 20px;
     color: rgb(3, 53, 119);
     cursor: pointer;
 }
@@ -49,8 +49,8 @@ navbar >input{
     border: none;
     cursor: pointer;
     border-radius: 5px 5px;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color:whitesmoke;
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
     transition: 0.5s;
 }
 navbar >input:hover{
@@ -174,7 +174,7 @@ content{
     gap: 10px;
 }
 
-<<<<<<< HEAD
+
 /* LOADING ANIMATION */
 .loader{
     position: absolute;
@@ -212,11 +212,7 @@ content{
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-=======
 
-
-
->>>>>>> 7753733ae3167f74176fad0678fd2f929a7b8b6e
 
 .postImageContent{
     font-family: Arial, Helvetica, sans-serif;

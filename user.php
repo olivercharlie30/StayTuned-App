@@ -21,6 +21,8 @@
     <title>Profile User</title>
 </head>
 <body>
+    <div class="leftContainer"></div>
+    <div class="rightContainer"></div>
     <div class="userContainer">
         <div class="userNavbar"></div>
         
@@ -85,6 +87,16 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+        body{
+            display:grid;
+            grid-template-columns
+        }
+         .rightContainer{
+
+         }
+        .leftContainer{
+
         }
         .userContainer{
             display: grid;

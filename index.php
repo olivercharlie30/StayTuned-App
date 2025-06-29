@@ -18,7 +18,7 @@
     <div class="container">
         <navbar>
             <h2 id="titleReload">Stay Tuned</h2>
-            <input type="search" placeholder="Search...">
+            <input type="search" placeholder="Search Stay Tuned">
             <span><i class="fa fa-magnifying-glass"></i></span>
             <div class="navbarIcon">
                 <span id="house"><i class="fa fa-house"></i></span>
@@ -38,14 +38,38 @@
         <leftbar></leftbar>
         <rightbar></rightbar>
         <content>
+            <div class="postContainer">
+                <form action="" method="GET">
+                    <textarea name="postContent" rows="4" cols="50">what on your mind.</textarea>
+                    <input type="file" name="image"/>
+                    <input type="submit" name="postBtn" value="Post"/>
+                </form>
+            </div>
 
-            <!-- <div class="loader"></div> -->
 
         </content>
     </div>
 
 
     <script type="module" src="javascript/index.js"></script>
+    <style>
+        .postContainer{
+            background-color:rgb(224, 220, 220);
+            padding: 10px 10px;
+            width: 400px;
+            border-radius: 15px;
+        }
+        .postContainer > form{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            gap: 5px;
+        }
+        form > textarea{
+            width: 100%;
+            padding: 3px 3px;
+        }
+    </style>
     
 </body>
 </html>

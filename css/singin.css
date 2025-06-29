@@ -9,6 +9,7 @@ background-color: whitesmoke;
 .signinContainer{
     display: grid;
     grid-template-rows:200px 2fr 200px;
+    grid-auto-flow: dense;
     /* grid-template-columns: 1fr 1fr 1fr; */
     grid-template-areas:"box1 box1 box1"
                         "box2 box2 box2"
@@ -45,6 +46,7 @@ background-color: whitesmoke;
     border-radius: 15px;
     background-color: white;
     gap: 5px;
+    
 }
 form > h2{
     font-weight: 700;
@@ -166,6 +168,7 @@ form .alHaveAcount:hover{
     display: flex;
     justify-content: center;
     align-items: end;
+    text-align: center;
  
 }
 .footerSignin .footerText{
@@ -173,4 +176,24 @@ form .alHaveAcount:hover{
     display: flex;
     flex-direction: column;
     gap: 5px;
+
 }
+
+
+
+@media (max-width: 499px) and (min-width: 320px){
+
+    .signinContainer{
+        display: grid;
+        grid-template-rows:auto;
+        grid-template-columns: 1fr;
+        grid-template-areas:"box1"
+                            "box2"
+                            "box3 ";
+    
+        position: relative;
+    
+    }
+
+
+} 

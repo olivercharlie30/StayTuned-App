@@ -7,7 +7,7 @@
 .loginContainer{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows:3fr 1fr;
+    grid-template-rows: auto 1fr;
 
     grid-template-areas: "titleContent loginContent"
                          "footerContent";
@@ -287,6 +287,7 @@ form #btnCreateAcount:hover{
     .loginContainer{
         display: grid;
         grid-template-rows:1fr 1fr 1fr;
+        grid-template-columns: 1fr;
 /*     
         grid-template-areas: "titleContent" 
                              "loginContent"
@@ -358,7 +359,7 @@ form #btnCreateAcount:hover{
     }
     form > input{
         padding: 10px;
-        width: 350px;
+        width: 290px;
         border-radius:3px;
         border: none;
         /* border: 0.1px solid rgb(167, 163, 163); */
