@@ -127,6 +127,14 @@ faBell.addEventListener("click", ()=> {
 });
 
 
+fetch('http://localhost/staytuned-APP/core/post.php')
+.then(response => {
+  return response.json();
+}).then((data)=> {
+  console.log(data);
+})
+
+
 
 // fetch('https://fakestoreapi.com/products')
 //   .then(data => {

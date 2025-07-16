@@ -1,6 +1,5 @@
 <?php
 
-include_once("config.php");
 
 
 if (isset($_POST['signUp'])) {
@@ -44,4 +43,57 @@ if (isset($_POST['login'])){
       }else{
         echo "not found or incorrect your info";
       }
+}
+
+
+
+//INSERT POST 
+if(isset($_POST['createBtnPost'])){
+
+  $title = $_POST['title'];
+  $category = $_POST['category'];
+
+    $image = $_FILES['file'];
+    $fileName = $_FILES['file']['name'];
+    $fileTmpName = $_FILES['file']['tmp_name'];
+    $fileSize = $_FILES['file']['size'];
+    $fileError = $_FILES['file']['error'];
+    $fileType = $_FILES['file']['type'];
+
+
+    $fileExt = explode('.', $fileName);
+    $fileActualExt = strtolower(end($fileExt));
+
+    $allowed = array('jpg', 'jpeg', 'png', 'pdf');
+
+      if(in_array($fileActualExt, $allowed)){
+            if($fileError === 0){
+                if($fileSize < 1000000){
+                    $fileNameNew = uniqid('', true).".".$fileActualExt;
+                    $image = 'uploads/'.$fileNameNew;
+                    move_uploaded_file($fileTmpName, $image);
+                   
+
+                include_once("core/config.php");
+                include_once("core/post.php");
+                $insert = new post($title, $category, $image);
+                $insert->insertPost();
+
+
+                   echo "inserted successfully";
+                }else{
+                      echo "you file is to big!.";
+
+                }
+
+            }else{
+                echo "there was an error uploading your file!.";
+
+            }
+
+      }else{
+        echo "you cannot upload files of this type.";
+    }
+
+
 }
