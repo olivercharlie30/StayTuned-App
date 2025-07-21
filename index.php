@@ -1,8 +1,9 @@
 <?php
 
-   include_once("core/config.php");
-   include_once("core/post.php");
+   include_once("database/config.php");
+   include_once("class/post.php");
    include_once("phpFunction.php");
+   
      session_start();
 ?>
 <!DOCTYPE html>
@@ -10,7 +11,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>StayTuned</title>
 </head>
 <body>
@@ -67,15 +71,70 @@
         
     </header>
     <leftbar>
-        <div class="profile">
-            <img src="uploads/ivanaProfile.jpg" alt="image error"/>
-            <h4>oliver charlie lapinig</h4>
+        <div class='wrapperLeftbar'>
+           
 
+            <div class="iconLeftbar">
+                <span class="profile">
+                <img src="uploads/ivanaProfile.jpg" alt="image error"/>
+                 <h4>oliver charlie lapinig</h4>
+
+                </span>
+                <span>
+                    <img src="uploads/staytunedsticker-removebg-preview.png" alt="error image" width="40px"/>
+                    Programmer: Oliver Charlie
+                </span>
+                <span>
+                    <i class="fa-solid fa-user-group" style="color: #34eb74;"></i>
+                    Friends
+                </span>
+                <span>
+                    <i class="fa-solid fa-table-columns" style="color: #eb5534;"></i>
+                    Professional dashboard
+                </span>
+                <span>
+                    <i class="fa-solid fa-envelope" style="color:#34d5eb;"></i>
+                    Feeds
+                </span>
+                <span>
+                    <i class="fa-solid fa-shop" style="color: #3a34eb;"></i>
+                    Marketplace
+                </span>
+                <span class="seemore" id="seemore">
+                    <i class="fa-solid fa-angle-down"></i>
+                    See more
+                </span>
+            </div>
+
+          </div>
         </div>
+         <!-- <<<<< SEEMORE DIV >>>>> -->
+          <div class="seemoreElement" id="seemoreElement">
+            <div class="wrapperseemoreElement">
+                <ul>
+                    <li class="darkMode" id="darkMode">
+                        <span><i class="fa-solid fa-moon"></i>Dark Mode</span>
+                    </li>
+                    <li class="lightMode" id="lightMode">
+                         <span><i class="fa-solid fa-sun"></i>Light Mode</span>
+                    </li>
+                </ul>
+            </div>
+
+          </div>
     </leftbar>
-    <rightbar></rightbar>
+    <rightbar>
+    
+        <div class="contacts">
+             <h2>Contacts</h2>
+                   
+            </div>
+             
+        </div>
+        
+    </rightbar>
     <main>
-        <div class="post">
+         <div class="post">     <!-- //+++++++<<<<<<< THIS FORM WE INSERT DATA TO MYSQL >>>>>+++++++++\\ -->
             <div class="postWrapper">
                 <form action="phpFunction.php" method="POST" enctype="multipart/form-data">
                     <input type="text" name="title" placeholder="Enter your title Post..." id="title">
@@ -90,14 +149,46 @@
             </div>
         </div>
 
+        <!-- +++++++++++<<<<<<<<<<READ DATA FROM DATABASE USING I FETCH DATA USING PHP >>>>>>>>++++++++++++++++++ -->
         <?php   
-           $view = new viewPost();
-          $row = $view->getPostAll();
+        include_once("class/read.php");
+        $read = new read();
+         $result = $read->readPost();
         ?>
+
+        <?php foreach($result as $data) { ?>
+         <div class="postImageContent" id="postImageContent">
+                  <div class="postIcon">
+                      <i class="fa-sharp fa-solid fa-angles-right"></i>
+                      <i class="fa-solid fa-xmark"></i>
+                    </div>
+                    <div class="user">
+                      <img class="userProfile" src="<?php echo $data['image'] ?>" alt="error profile img" width="30px"/>
+                      <div class="username"><strong><?php echo $data['title'] ?></strong></div>
+                    </div>
+                    <div class="dateTime"><?php echo $data['createDate'] ?></div>
+                    <div class="category"><p><?php echo $data['category'] ?><span class="textMore"></span></p>
+                        </div>
+                        <span class="readMoreBtn"><i class="fa-solid fa-angles-right"></i> See More....</span>
+                       <img src="<?php echo $data['image']?>" alt='error image' width="100%"/>
+                      <div class="countLike">
+                        <span id="likeCounts">0</span>
+                        <span id="commentCounts">1.5k comments</span>
+                        <span>350 shares</span>
+                      </div>
+                      <div class="likeSection">
+                        <span class="like" id="like" onclick="likeCounts()"><i class="fa-regular fa-thumbs-up"></i>Like</span>
+                        <span class="comment" id="comment" onclick="comments()"><i class="fa-regular fa-comment"></i>Comments</span>
+                       <span class="share"><i class="fa-solid fa-share"></i>share</span>
+                     </div>
+                   </div>
+                   <?php } ?>
 
 
     </main>
     
+    
+    <script src="index.js"></script>
 </body>
 </html>
 
@@ -118,7 +209,13 @@
 
         height: 100vh;
         width: 100%;
+        background-color: whitesmoke;
     }
+    .darkModeBody{
+        background-color: black;
+        color: white;
+    }
+    
     header{
         grid-area: header;
 
@@ -126,8 +223,11 @@
         justify-content: space-between;
         align-items: center;
         box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        background-color: white;
         padding: 10px;
-        position:sticky ;
+        position:fixed;
+        width: 100%;
+        z-index: 10;
     }
     header .logoArea{
         display: flex;
@@ -186,6 +286,7 @@
         font-size: larger;
         font-weight: bold;
         cursor: pointer;
+        color:black;
     }
      .homeArea > span{
         padding: 3px;
@@ -205,6 +306,7 @@
         font-size: larger;
         font-weight: bold;
         cursor: pointer;
+        color:black;
     }
     .messageArea > span{
         padding: 3px;
@@ -220,30 +322,113 @@
     leftbar{
         grid-area: leftbar;
         /* background-color: blue; */
-        position:sticky;
+        position:fixed ;
+        top: 60px;
         padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items:self-start;
+        height: 100vh;
+        width: 100%;
+        
     }
-    leftbar .profile{
+    .darkModeLeftbar{
+        background-color: black;
+        color: white;
+    }
+    leftbar .wrapperLeftbar{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .iconLeftbar .profile{
         display: flex;
         justify-content:flex-start;
         align-items: center;
         gap: 5px;
+        cursor: pointer;
         
     }
-    .profile > img{
+    .iconLeftbar > span{
+        cursor: pointer;
+    }
+    leftbar .profile > img{
         width: 50px;
         height:50px;
         margin-left: 5px;
         border-radius: 40px;
     }
-    rightbar{
+
+    leftbar .iconLeftbar{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        font-size: larger;
+        padding:5px 15px;
+    }
+    
+    leftbar .seemoreElement{
+        /* background-color: white; */
+        padding: 20px 20px;
+        border-radius: 5px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        display: none;
+    }
+    leftbar .addSeemoreElement{
+        display: flex;
+    }
+    leftbar .seemoreElement .wrapperseemoreElement{
+        display: flex;
+        align-items: self-start;
+    }
+    .wrapperseemoreElement > ul{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: self-start;
+        justify-content: flex-start;
+        cursor: pointer;
+    }
+
+
+
+
+   rightbar{
         grid-area: rightbar;
         /* background-color: brown; */
-        position: fixed;
+        position:fixed;
+        top: 60px;
+        right: 50px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 30px;
+        /* height: 100vh;
+        width: 100%; */
+    
     }
+    .darkModeRightbar{
+        background-color: black;
+        color: white;
+    }
+    rightbar .contacts{
+        
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+        cursor: pointer;
+    }
+   
     main{
         grid-area:main;
         /* background-color: pink; */
+        height: 100vh;
+        width: 100%;
+    }
+    .darkModeMain{
+        background-color: black;
+        color: white;
     }
     main .postImageContent{
         width: 100%;
@@ -251,7 +436,9 @@
         padding: 5px;
         border-radius: 3px;
         box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+        /* background-color: white; */
     }
+   
     main .postImageContent .postIcon{
         display: flex;
         justify-content: end;
@@ -262,6 +449,9 @@
         justify-content: flex-start;
         align-items: center;
         gap: 10px;
+    }
+    .user .userProfile{
+        border-radius: 50px;
     }
     main .postImageContent .countLike{
         display: flex;
@@ -274,17 +464,24 @@
         justify-content: space-between;
         margin: 5px;
         padding: 10px;
-        
+    }
+    main .postImageContent .comment{
+        cursor: pointer;
+    }
+    main .postImageContent .like{
+        cursor: pointer;
     }
 
     /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<   INSERT DATA    >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  */
     .post{
+        padding:50px 30px;
         display: flex;
         justify-content: center;
         align-items: center;
         margin-top: 10px;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
         border-radius: 5px;
+        /* background-color: white; */
     }
    .post .postWrapper{
         display: flex;
@@ -332,7 +529,7 @@
    form > label:hover{
     
     background-color:rgb(26, 173, 26);
-    color: white;
+    /* color: white; */
     border-radius: 3px;
    }
    label > i{
@@ -358,4 +555,37 @@
         background-color: rgb(40, 125, 175);
 
    }
+
+
+   /* <<<<<<<<<<<<<<< ********MEDIA QUERY MOBILE SIZE************ >>>>>>>>>>>>>>>>>>>>> */
+   @media(max-width:800px){
+
+        body{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas: 
+        "header"
+        "main"
+        "main";
+
+        height: 100vh;
+        width: 100%;
+    }
+
+    header{
+        grid-area: header;
+    }
+    main{
+        grid-area: main;
+    }
+    leftbar{
+        display: none;
+    }
+    rightbar{
+        display: none;
+    }
+
+   }
+
 </style>

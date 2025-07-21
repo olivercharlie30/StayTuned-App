@@ -1,6 +1,7 @@
 <?php
-  include_once("config.php");
-  include_once("phpFunction.php");
+
+  include_once("phpHandler/signinHandler.php");
+  include_once("class/signinClass.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,11 +15,12 @@
 <div class="signinContainer">
     <div class="signinTitle">
         <h1>Stay Tuned</h1>
+        
     </div>
-
+     
     <div class="formContainer">
       
-        <form action="phpFunction.php" method="POST">
+        <form action="phpHandler/signinHandler.php" method="POST">
             <h2>Create a new acount</h2>
             <p>It's quick and easy.</p>
             <span></span>

@@ -27,3 +27,30 @@
     //                 </div>
     //               </div>
     //               <?php } ?>
+   <?php  foreach($row as $data)  { ?>
+         
+                     <i class='fa-sharp fa-solid fa-angles-right'></i>
+                     <i class='fa-solid fa-xmark'></i>
+                   </div>
+                   <div class='user'>
+                     <img class='userProfile' src='uploads/userimage-removebg-preview.png' width='40px'/>
+                     <div class='username'><strong><?php echo $data['title'] ?></strong></div>
+                   </div>
+                   <div class='dateTime'>May 1 at 6:20 PM </div>
+                   <div class='category'><p><?php echo $data['category'] ?><span class='textMore'></span></p>
+                       </div>
+                       <span class='readMoreBtn'><i class='fa-solid fa-angles-right'></i> See More....</span>
+                <img src=<?=$row['image']?> alt='error image' width='100%'/>
+                     <div class='countLike'>
+                       <span id='countReact'>10k</span>
+                       <span>1.5k comments</span>
+                       <span>350 shares</span>
+                     </div>
+                     <div class='likeSection'>
+                       <span class='like' onClick='countLike()'><i class='fa-regular fa-thumbs-up'></i>Like</span>
+                       <span class='comment'><i class='fa-regular fa-comment'></i>Comments</span>
+                      <span class='share'><i class='fa-solid fa-share'></i>share</span>
+                    </div>
+                  </div>
+                  <?php } ?>
+                  
