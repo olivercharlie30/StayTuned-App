@@ -1,7 +1,7 @@
-<?php
+xxxxxx <?php
 
    include_once("database/config.php");
-   include_once("class/post.php");
+   include_once("class/insert.php");
    include_once("phpFunction.php");
    
      session_start();
@@ -18,8 +18,47 @@
     <title>StayTuned</title>
 </head>
 <body>
+
+                                        <!-- <<<<<<<<<<<<<<<<<<<<<< 
+                                     CREATE MODAL FOR POST VIEW CONTENT 
+                                      >>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+        <div class="openModal" id="openModal" style="display: none;">
+            <div class="modal">
+              <div class="headerModal">
+               <span>
+                 <i class="fa-solid fa-xmark"></i>
+                 close
+               </span>
+             </div>
+             <div class="modalContent">
+                <img src="uploads/6878ffa10fd5e4.54465264.jpg" alt="image error" width="30px" style="border-radius: 50%;"/>
+                <h3 class="title">Title</h3>
+
+              <!--<<<<<<<<<<<<<<<<<<<<DROP YOUR COMMENT FORM>>>>>>>>>>>>>>>>>>>>>>> -->
+            <form action="" method="POST">
+            <nput type="text" name="commentPost" placeholder="Drop your Comment..." id="commentPost">
+            <input type="submit" name="submitComment"/>
+            </form>
+            </div>
+        
+     </div>
+   </div>
+            
     <header>
-  
+        <!-- <<<<<<MOBILE DESIGN>>>>>>>> -->
+            <div class="modileHeader">
+              <img src="uploads/stimagemobile.png" alt="image error" width="40px" height="40px" style="border-radius: 50%;"/>
+              <ul>
+                <li> <i class="fa-solid fa-house" style="color: rgb(11, 86, 247);"></i></li>
+                <li> <i class="fa-solid fa-tv"></i></li>
+                <li> <i class="fa-solid fa-store"></i></li>
+                <li><i class="fa-solid fa-message"></i></li>
+                <li> <i class="fa-solid fa-bell"></i></li>
+              </ul>
+            </div>
+
+
+
         <div class="logoArea">
              <h2>StayTuned</h2>
               <span>
@@ -81,7 +120,7 @@
 
                 </span>
                 <span>
-                    <img src="uploads/staytunedsticker-removebg-preview.png" alt="error image" width="40px"/>
+                    <img src="uploads/stimagemobile.png" alt="error image" width="40px" style="border-radius: 50%;"/>
                     Programmer: Oliver Charlie
                 </span>
                 <span>
@@ -163,7 +202,7 @@
                       <i class="fa-solid fa-xmark"></i>
                     </div>
                     <div class="user">
-                      <img class="userProfile" src="<?php echo $data['image'] ?>" alt="error profile img" width="30px"/>
+                      <img class="userProfile" src="<?php echo $data['image'] ?>" alt="error profile img" width="30px" style="border-radius: 50%;"/>
                       <div class="username"><strong><?php echo $data['title'] ?></strong></div>
                     </div>
                     <div class="dateTime"><?php echo $data['createDate'] ?></div>
@@ -216,6 +255,33 @@
         color: white;
     }
     
+              /* <<<<<<<<<<<<<<<<<<<<<<
+                 MODAL FUNCTION STYLE
+               >>>>>>>>>>>>>>>>>>>>>>> */
+#openModal {
+background-color:rgba(224, 222, 222, 0.48);
+padding: .5rem 1rem;
+border: 0;
+box-shadow: 00 12px 8px rgba(0,0,0,0.3);
+cursor: pointer;
+justify-content: center;
+align-items: center;
+display: flex;
+flex-direction: column;
+z-index: 100;
+width: 100%;
+height: 100vh;
+position: absolute;
+position:fixed;
+}
+/* #openModal:hover{
+    background-color: rgba(41, 38, 38, 0.3);
+} */
+
+
+.open {
+    display: flex;
+} 
     header{
         grid-area: header;
 
@@ -228,6 +294,9 @@
         position:fixed;
         width: 100%;
         z-index: 10;
+    }
+    header .modileHeader{
+        display: none;
     }
     header .logoArea{
         display: flex;
@@ -328,8 +397,8 @@
         display: flex;
         flex-direction: column;
         align-items:self-start;
-        height: 100vh;
-        width: 100%;
+        /* height: 100vh;
+        width: 100%; */
         
     }
     .darkModeLeftbar{
@@ -423,8 +492,8 @@
     main{
         grid-area:main;
         /* background-color: pink; */
-        height: 100vh;
-        width: 100%;
+        /* height: 100vh;
+        width: 100%; */
     }
     .darkModeMain{
         background-color: black;
@@ -495,6 +564,7 @@
         justify-content: center;
         align-items: center;
         width: 100%;
+        cursor: pointer;
    }
    form #title{
     width: 100%;
@@ -575,6 +645,31 @@
 
     header{
         grid-area: header;
+    }
+    header .modileHeader{
+        display: flex;
+    }
+    .modileHeader > ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        font-size: larger;
+        font-weight: 700;
+        list-style: none;
+        cursor: pointer;
+        margin-top: 5px;
+        color: black;
+    }
+    header .logoArea{
+        display: none;
+        
+    }
+    header .homeArea{
+        display: none;
+    }
+    header .messageArea{
+        display: none;
     }
     main{
         grid-area: main;

@@ -26,8 +26,8 @@ class signin extends config{
     }
 
     public function emptySinginInput(){
-        if(empty($this->firstname) && empty($this->lastname) && empty($this->month) && empty($this->day) && empty($this->year) && empty($this->gender) && empty($this->username) && empty($this->passwords)){
-           echo "input can't empty..";
+        if(empty($this->firstname) || empty($this->lastname) || empty($this->month) || empty($this->day) || empty($this->year) || empty($this->gender) || empty($this->username) || empty($this->passwords)){
+        
         }else{
           return true;
         }
@@ -38,3 +38,19 @@ class signin extends config{
     }
 }
 
+
+    
+    
+
+    // $checkUsername = "SELECT * FROM useracount WHERE username = '$username' ";
+    // $result = $conn->query($checkUsername);
+    // if ($result->num_rows > 0) {
+    //     echo "username already exists.";
+    // }else{
+    //     $insertQuery = "INSERT INTO useracount(firstName, lastName, month, days, year, gender, username, password)
+    //                   VALUES ('$firstname', '$lastname', '$month', '$day', '$year', '$gender', '$username', '$password')";
+    // }           if($conn->query($insertQuery)==TRUE){
+    //              header("location: login.php");            
+    //             }else{
+    //                 echo "error".$conn->error;
+    //             }
