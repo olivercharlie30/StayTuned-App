@@ -2,9 +2,9 @@
    
 
 
+function login(){
 
-
-if (isset($_POST['login'])){
+  if (isset($_POST['login'])){
     $user = $_POST['username'];
     $pass = $_POST['password'];
     // $password = md5($password);
@@ -19,15 +19,78 @@ if (isset($_POST['login'])){
       }else{
         echo "not found or incorrect your info";
       }
+  }
 }
+login();
 
 
 
 //INSERT POST 
-if(isset($_POST['createBtnPost'])){
+function insertPost(){
+  if(isset($_POST['createBtnPost'])){
 
-  $title = $_POST['title'];
-  $category = $_POST['category'];
+    $title = $_POST['title'];
+    $category = $_POST['category'];
+  
+      $image = $_FILES['file'];
+      $fileName = $_FILES['file']['name'];
+      $fileTmpName = $_FILES['file']['tmp_name'];
+      $fileSize = $_FILES['file']['size'];
+      $fileError = $_FILES['file']['error'];
+      $fileType = $_FILES['file']['type'];
+  
+  
+      $fileExt = explode('.', $fileName);
+      $fileActualExt = strtolower(end($fileExt));
+  
+      $allowed = array('jpg', 'jpeg', 'png', 'pdf');
+  
+        if(in_array($fileActualExt, $allowed)){
+              if($fileError === 0){
+                  if($fileSize < 1000000){
+                      $fileNameNew = uniqid('', true).".".$fileActualExt;
+                      $image = 'uploads/'.$fileNameNew;
+                      move_uploaded_file($fileTmpName, $image);
+                     
+  
+                  include_once("database/config.php");
+                  include_once("class/insert.php");
+                  $insert = new insert($title, $category, $image);
+                  $insert->insertPost();
+  
+  
+                     echo "inserted successfully";
+                  }else{
+                        echo "you file is to big!.";
+  
+                  }
+  
+              }else{
+                  echo "there was an error uploading your file!.";
+  
+              }
+  
+        }else{
+          echo "you cannot upload files of this type.";
+      }
+  }
+}
+insertPost();
+
+
+
+
+function signinHandler() {
+
+    if (isset($_POST['signUp'])) {
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $month = $_POST['month'];
+    $day = $_POST['day'];
+    $year = $_POST['year'];
+    $gender = $_POST['gender'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
     $image = $_FILES['file'];
     $fileName = $_FILES['file']['name'];
@@ -51,9 +114,10 @@ if(isset($_POST['createBtnPost'])){
                    
 
                 include_once("database/config.php");
-                include_once("class/insert.php");
-                $insert = new insert($title, $category, $image);
-                $insert->insertPost();
+                include_once("class/signinClass.php");
+                $singin = new signin($firstname, $lastname, $month, $day, $year, $gender, $username, $password, $image);
+                $singin->userCheckIfExisting();  
+                $singin->insertSignin();
 
 
                    echo "inserted successfully";
@@ -70,38 +134,28 @@ if(isset($_POST['createBtnPost'])){
       }else{
         echo "you cannot upload files of this type.";
     }
+  }    
 }
 
 
-function signinHandler() {
 
+
+function getUsername(){
+
+  include_once("database/config.php");
+  include_once("class/signinClass.php");
+  $getSingin = new getAllUser();
+  $row = $getSingin->getUserAcount(); 
+
+  foreach($row as $data){
+    
+    
+      echo "   <span style='display:flex; padding:5px; flex-direction:column;'>";
+      echo "  <a style='display:flex; padding:5px;' href='user.php?edit=$data[id]'>";
+      echo "  <img src='$data[image]' alt='error image' width='30px' height='30px' style='border-radius: 50%;'/>";   
+      echo "   <p> $data[firstName] $data[lastName]</p>";          
+      echo "  </a>";
+      echo "  </span>";
   
-
-
-    if (isset($_POST['signUp'])) {
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $month = $_POST['month'];
-    $day = $_POST['day'];
-    $year = $_POST['year'];
-    $gender = $_POST['gender'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-   
-   
-     include_once("class/signinClass.php");
-     $singin = new signin($firstname, $lastname, $month, $day, $year, $gender, $username, $password);
-     $singin->emptySinginInput();  
-      
-     
-           echo '<div class="alert alert-warning d-flex align-items-center" role="alert">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-            </svg>
-            <div>
-                Cant be empty......
-            </div>
-            </div>';
-    }    
+  }
 }

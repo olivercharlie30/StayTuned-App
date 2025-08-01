@@ -1,4 +1,4 @@
-xxxxxx <?php
+<?php
 
    include_once("database/config.php");
    include_once("class/insert.php");
@@ -120,7 +120,7 @@ xxxxxx <?php
 
                 </span>
                 <span>
-                    <img src="uploads/stimagemobile.png" alt="error image" width="40px" style="border-radius: 50%;"/>
+                    <img src="uploads/stimagemobile.png" alt="error image" width="40px" height="40px" style="border-radius: 50%;"/>
                     Programmer: Oliver Charlie
                 </span>
                 <span>
@@ -166,7 +166,11 @@ xxxxxx <?php
     
         <div class="contacts">
              <h2>Contacts</h2>
-                   
+                <ul class="contactUl">
+                    <li>
+                    <?php getUsername(); ?>
+                    </li>
+                </ul>
             </div>
              
         </div>
@@ -205,7 +209,7 @@ xxxxxx <?php
                       <img class="userProfile" src="<?php echo $data['image'] ?>" alt="error profile img" width="30px" style="border-radius: 50%;"/>
                       <div class="username"><strong><?php echo $data['title'] ?></strong></div>
                     </div>
-                    <div class="dateTime"><?php echo $data['createDate'] ?></div>
+                    <div class="dateTime"><?php echo $data['created_at'] ?></div>
                     <div class="category"><p><?php echo $data['category'] ?><span class="textMore"></span></p>
                         </div>
                         <span class="readMoreBtn"><i class="fa-solid fa-angles-right"></i> See More....</span>
@@ -225,9 +229,11 @@ xxxxxx <?php
 
 
     </main>
+
+                  
     
     
-    <script src="index.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
 
@@ -471,8 +477,8 @@ position:fixed;
         right: 50px;
         display: flex;
         align-items: flex-start;
-        justify-content: center;
-        gap: 30px;
+        justify-content: flex-start;
+        gap: 15px;
         /* height: 100vh;
         width: 100%; */
     
@@ -484,11 +490,18 @@ position:fixed;
     rightbar .contacts{
         
         display: flex;
-        gap: 5px;
+        gap: 2px;
         flex-direction: column;
         cursor: pointer;
     }
-   
+    .contactUl{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: self-start;
+        justify-content: flex-start;
+    }
+
     main{
         grid-area:main;
         /* background-color: pink; */

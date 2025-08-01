@@ -5,7 +5,7 @@ class config{
     private $host = "localhost";
     private $user = "root";
     private $password ="";
-    private $dbname = "person";
+    private $dbname = "staytuned";
     public $pdo = null;
 
      function connect(){

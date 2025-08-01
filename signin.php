@@ -17,10 +17,10 @@
         <h1>Stay Tuned</h1>
         
     </div>
-             <?php signinHandler(); ?>
+             <?php signinHandler();  ?>
     <div class="formContainer">
       
-        <form action="phpFunction.php" method="POST">
+        <form action="phpFunction.php" method="POST" enctype="multipart/form-data">
             <h2>Create a new acount</h2>
             <p>It's quick and easy.</p>
             <span></span>
@@ -119,6 +119,8 @@
                     <option value="undecided">Undecided</option>
                 </select>
             </div>
+            <label for="image">image</label>
+            <input type="file" name="file" id="image" style='display:none;'>
             <div class="createAcountDiv">
                 <input type="text" name="username" placeholder="Mobile number or email">
                 <input type="password" name="password" placeholder="New password">
