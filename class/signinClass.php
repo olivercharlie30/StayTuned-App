@@ -4,43 +4,22 @@ include_once("database/config.php");
 
 class signin extends config{
 
-    public $firstname;
-    public $lastname;
-    public $month;
-    public $day;
-    public $year;
-    public $gender;
-    public $username;
-    public $password;
-    public $image;
 
-    public function __construct($firstname, $lastname, $month, $day, $year, $gender, $username, $password, $image)
-    {
-        $this->firstname = $firstname;
-        $this->lastname = $lastname;
-        $this->month = $month;
-        $this->day = $day;
-        $this->year = $year;
-        $this->gender = $gender;
-        $this->username = $username;
-        $this->password = $password;
-        $this->image = $image;
-    }
 
-    public function userCheckIfExisting(){
+    public function userCheckIfExisting($username){
 
         try {
             $pdo = $this->connect();
             $stmt = $pdo->prepare("SELECT * FROM `useracount` WHERE :username");
             $stmt->bindParam(':username', $this->username);
             $stmt->execute();
-            $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            if($stmt->rowCount() > 0){
-                echo "Username Already Existing.";
-                return true;
-            }else{
+            if($result){
+               echo "Username Already Existing.";
                 return false;
+            }else{
+                return true;
             }
 
 
@@ -70,6 +49,7 @@ class signin extends config{
             $stmt->bindParam(':image', $this->image);
 
             if($stmt->execute()){
+            
                 return true;
             }else{
                 return false;
@@ -83,23 +63,12 @@ class signin extends config{
     }
 }
 
-class getAllUser extends config{
 
-    
-    public function getUserAcount(){
-        try {
-            $pdo = $this->connect();
-            $stmt = $pdo->prepare("SELECT * FROM `useracount`");
-            $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            return $result;
 
-        } catch (PDOException $e) {
-            die("get user acount failed." .$e->getMessage());
-        }
-    }
-}
+
+
+
 
 
     

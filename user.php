@@ -1,15 +1,12 @@
 <?php 
   session_start();
   require_once("database/config.php");
+  require_once("class/signinClass.php");
   require_once("phpFunction.php");
+  include_once("class/displayUserById.php");
 
-
-  if(isset($_SESSION['username'])){
-     $user = $_SESSION['username'];
-     $query = mysqli_query($conn, "SELECT useracount. * FROM `useracount` WHERE useracount.firstName = '$user'");
-     while($row = mysqli_fetch_array($query)){  
-     }
-  }
+  if(isset($_GET['show']))
+  $dis = new displayUserById($_GET['show']);
  
 ?>
 <!DOCTYPE html>
@@ -17,69 +14,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+          integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Profile User</title>
 </head>
 <body>
-    <div class="leftContainer"></div>
-    <div class="rightContainer"></div>
-    <div class="userContainer">
-        <div class="userNavbar"></div>
-        
-        <div class="userContent">
-            <div class="Profile">
-                <img class="bigLogoImage" id="bigLogoImage" src="image/tryandtry.jpg" alt="profile image" width="700px"/>
-
-                           
-                      <!--********************** CHANGES PROFILE LOGO  PICTURE ********************-->
-                   <label class="inputFile" for="inputFile"><i class="fa-solid fa-camera"></i>Edit Cover Photo</label>
-                  <input id="inputFile" type="file" accept="image/jpeg, image/png, image/jpg"/>
-
-
-                      <!--********************** CHANGES PROFILE PICTURE ********************-->
-                  <label class="inputProfileLabel" for="inputProfile"><i class="fa-solid fa-camera"></i></label>
-                  <input class="inputProfileInput" id="inputProfile" type="file" accept="image/jpeg, image/png, image/jpg"/>
-
-                <div class="ProfileLogoImage">
-                    <img class="loginImage" id="loginImage" src="image/userimage-removebg-preview.png" alt="image error " width="100px"/> 
+    <header>
+          <!-- <<<<<<MOBILE DESIGN>>>>>>>> -->
+            <div class="modileHeader">
+                <img src="uploads/stimagemobile.png" alt="image error" width="40px" height="40px" style="border-radius: 50%;"/>
+                <ul>
+                  <li> <i class="fa-solid fa-house" style="color: rgb(11, 86, 247);"></i></li>
+                  <li> <i class="fa-solid fa-tv"></i></li>
+                  <li> <i class="fa-solid fa-store"></i></li>
+                  <li><i class="fa-solid fa-message"></i></li>
+                  <li> <i class="fa-solid fa-bell"></i></li>
+                </ul>
+              </div>
+  
+  
+  
+          <div class="logoArea">
+               <h2>StayTuned</h2>
+                <span>
+                  <form class="span">
+                       <input type="search" name="search" placeholder="Search StayTuned" id="" >
+                       <button>
+                           <i class="fa-solid fa-magnifying-glass"></i>
+                       </button>
+                      
+                  </form>
+                 
+                </span>
+             </div>
               
-            
-                    <h5 class="userNameAcount"><?php echo $_SESSION['username'];?></h5>
-                    <div class="followersCount">
-                        <p>5.1k followers</p>
-                        <p>1k following</p>
-                    </div>
-                    <a href="index.php">dashboard</a>
+              <!-- //HOME AREA -->
+              <div class="homeArea">
+                  <span>
+                      <i class="fa-solid fa-house" style="color: rgb(11, 86, 247);"></i>
+                  </span>
+                  <span>
+                      <i class="fa-solid fa-tv"></i>
+                  </span>
+                  <span>
+                      <i class="fa-solid fa-store"></i>
+                  </span>
+                  <span>
+                      <i class="fa-solid fa-users-rectangle"></i>
+                  </span>
+                  <span>
+                      <i class="fa-solid fa-gamepad"></i>
+                  </span>
+              </div>
+  
+             <div class="messageArea">
+               <span>
+                  <i class="fa-solid fa-bars"></i>
+               </span>
+               <span>
+                  <i class="fa-solid fa-message"></i>
+               </span>
+               <span>
+                  <i class="fa-solid fa-bell"></i>
+               </span>
+               <!-- <span>
+                  <i class="fa-solid fa-bell"></i>
+               </span> -->
+  
+             </div>
+          
+    </header>
+    <leftbar></leftbar>
+    <rightbar></rightbar>
+    <main>
+        <div class='mainContainer'>
+            <?php $dis->displayBigImageById(); ?>
+
+            <div class='userInfoList'>
+                <div class="userName">
+                   <?php
+                       $dis->displayImageById(); 
+                    
+                      $dis->displayUsernameById(); 
+                     ?>
                 </div>
-                <span class="lineborder"></span>
+                <div class='tableContent'>
+                   <?php $dis->displayTableUserListById(); ?>
+                </div>
             </div>
-
-           <div class="userLeft"></div>
-
-            <div class="userRight">
-
-            </div>
+           
         </div>
-        
-    </div>
+    </main>
+    <footer></footer>
+  
 
     <script>
-        let bigLogoImage = document.querySelector("#bigLogoImage");
-        let inputFile = document.querySelector("#inputFile");
-        let inputProfile = document.querySelector("#inputProfile");
-        let loginImage = document.querySelector("#loginImage");
-
-
-                  //*************** CHANGE PROFILE IMAGE **************************
-        inputProfile.onchange = function() {
-            loginImage.src = URL.createObjectURL(inputProfile.files[0]);
-        }
-
-
-            //************************* CHANGE BIG PROFILE IMAGE ***********************    
-        inputFile.onchange = function() {
-            bigLogoImage.src = URL.createObjectURL(inputFile.files[0]);
-        }
 
     </script>
     <style>
@@ -87,163 +117,235 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
         }
         body{
             display:grid;
-            grid-template-columns
-        }
-         .rightContainer{
+            grid-template-columns:500px 1fr 500px;
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas:
+            "header header header"
+            "leftbar main rightbar"
+            "leftbar main rightbar";
 
-         }
-        .leftContainer{
-
-        }
-        .userContainer{
-            display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
-            grid-template-rows:30px 1fr;
-            grid-auto-flow: dense;
-
-            grid-template-areas: "navbar navbar navbar"
-                                "leftbar content rightbar";
-
-            height: 100vh;
+            height:100vh;
             width: 100%;
-             
         }
-        .userNavbar{
-            grid-area: navbar;
+        header{
+            grid-area: header;
+        }
+        header{
+        grid-area: header;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        background-color: white;
+        padding: 10px;
+        position:fixed;
+        width: 100%;
+        z-index: 10;
+    }
+    header .modileHeader{
+        display: none;
+    }
+    header .logoArea{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:50px;
+        
+    
+    }
+    header .logoArea > h2{
+        color: rgb(16, 68, 223);
+        padding-left:30px;
+        font-size: x-large;
+        font-weight: 900;
+    }
+
+     .span{
+        
+    }
+    .span >input{
+        padding: 7px;
+        border: none;
+        background-color: rgb(224, 224, 224);
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.5s;
+        }
+   .span > input:hover{
+      background-color: white;
+      box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+
+   }
+    
+    
+    .span > button{
+        border: none;
+        padding: 5px;
+        border-radius: 3px;
+        color:white;
+        background-color: green;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+    .span > button:hover{
+        background-color: rgb(14, 190, 14);
+    }
+    .span> i{
+
+        right: 7px;
+        top: 7px;
+        color: rgb(122, 120, 120);
+    }
+    header .homeArea{
+        display: flex;
+        gap: 50px;
+        font-size: larger;
+        font-weight: bold;
+        cursor: pointer;
+        color:black;
+    }
+     .homeArea > span{
+        padding: 3px;
+        border-radius: 5px;
+        transition: .05s;
+     }
+     .homeArea > span:hover{
+        background-color: rgb(159, 159, 159);
+        color: white;
+        padding: 3px;
+        border-radius: 5px;
+     }
+    header .messageArea{
+        margin-right:50px; 
+        display: flex;
+        gap: 30px;
+        font-size: larger;
+        font-weight: bold;
+        cursor: pointer;
+        color:black;
+    }
+    .messageArea > span{
+        padding: 3px;
+        border-radius: 5px;
+        transition: .05s;
+    }
+    .messageArea > span:hover{
+        background-color: rgb(159, 159, 159);
+        color: white;
+        padding: 3px;
+        border-radius: 5px;
+    }
+        leftbar{
+            grid-area: leftbar;
+        
+        }
+        rightbar{
+            grid-area: rightbar;
     
         }
-        .userContent{
-            grid-area: content;
-
-            background-color: white;
-            position: relative;
-            padding-bottom:30px;
-            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        main{
+            grid-area: main;
+       
         }
-        .userContent .Profile{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .Profile .bigLogoImage{
-            border-radius: 3px;
-            width: 100%;
-            height: 550px;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            position: relative;
-        }
-        .inputFile{
-            display: flex;
-            background-color: white;
-            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-             padding: 10px 5px;
-             border-radius: 10px;
-             font-weight:600;
-             cursor: pointer;
-             transition: 0.5s;
-
-
-            position: absolute;
-            top: 450px;
-            right: 10px;
-        }
-        .inputFile:hover{
-            background-color: rgb(19, 19, 161);
-            color: white;
-            font-weight: 600;
-        }
-        .inputFile > i{
-            margin-right: 5px;
-            color: rgba(230, 17, 17, 0.877);
-        }
-        #inputFile{
-            display: none;
-        }
-        .ProfileLogoImage{
-            display: flex;
-             
-
-            position: absolute;
-            /* left: 640px; */
-            bottom: 250px;
-            width: 700px;
-        }
-        .ProfileLogoImage .loginImage{
-            border-radius: 50px;
-        }
-
-        .inputProfileLabel{
-            font-size: larger;
-            color: black;
-            position: absolute;
-            left: 110px;
-            top: 550px;
-            background-color: white;
-            padding: 5px 5px;
-            border-radius: 30px;
-            z-index: 10;
-            transition: 0.5s;
-        }
+        main .mainContainer{
         
-        .inputProfileLabel:hover{
-            background-color: red;
-            color: white;
+        }
+        .mainContainer .userInfoList{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+        .mainContainer .userName{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+        }
+        .mainContainer .tableContent{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            background-color:white;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border-radius: 5px;
+        }
+        .tableContent > table{
           
         }
-        .inputProfileInput{
-            display: none;
+        table > thead{
+            background-color: wheat;
+            
+            
             
         }
-        .ProfileLogoImage .loginImage{
-            position: absolute;
-            bottom:40px;
-            cursor: pointer;
-        }
-        
 
-        .Profile .userNameAcount{
-            font-size: xx-large;
-            position: absolute;
-            bottom: 60px;
-            left: 125px;
-        }
-        .Profile .followersCount{
-            display: flex;
-            gap: 10px;
-            position: absolute;
-            bottom: 30px;
-            left: 110px;
-            font-size: large;
-            font-weight: 700;
-        }
+
+
+
+
+        
+   /* <<<<<<<<<<<<<<< ********MEDIA QUERY MOBILE SIZE************ >>>>>>>>>>>>>>>>>>>>> */
+   @media(max-width:800px){
+
+body{
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: auto 1fr auto;
+grid-template-areas: 
+"header"
+"main"
+"main";
+
+height: 100vh;
+width: 100%;
+}
+
+header{
+grid-area: header;
+}
+header .modileHeader{
+display: flex;
+}
+.modileHeader > ul{
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 40px;
+font-size: larger;
+font-weight: 700;
+list-style: none;
+cursor: pointer;
+margin-top: 5px;
+color: black;
+}
+header .logoArea{
+display: none;
+
+}
+header .homeArea{
+display: none;
+}
+header .messageArea{
+display: none;
+}
+main{
+grid-area: main;
+}
+leftbar{
+display: none;
+}
+rightbar{
+display: none;
+}
+
+}
     
-
-
-
-
-/* 
-        .userLeft{
-            grid-area: left;
-            background-color: red;
-            height: 100vh;
-
-        }
-        .userRight{
-            grid-area: right;
-            background-color: green;
-            height: 100vh;
-        }
-        
-        */
-   
- 
  
 
     </style>

@@ -2,6 +2,8 @@
 
   include_once("phpFunction.php");
   include_once("class/signinClass.php");
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,10 +19,10 @@
         <h1>Stay Tuned</h1>
         
     </div>
-             <?php signinHandler();  ?>
+          
     <div class="formContainer">
       
-        <form action="phpFunction.php" method="POST" enctype="multipart/form-data">
+        <form action="signin.php" method="POST" enctype="multipart/form-data">
             <h2>Create a new acount</h2>
             <p>It's quick and easy.</p>
             <span></span>

@@ -3,7 +3,9 @@
    include_once("database/config.php");
    include_once("class/insert.php");
    include_once("phpFunction.php");
-   
+   include_once("class/displayAllUser.php");
+   include_once("class/loginClass.php");
+
      session_start();
 ?>
 <!DOCTYPE html>
@@ -11,7 +13,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
       integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
       crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -22,17 +25,8 @@
                                         <!-- <<<<<<<<<<<<<<<<<<<<<< 
                                      CREATE MODAL FOR POST VIEW CONTENT 
                                       >>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
-        <div class="openModal" id="openModal" style="display: none;">
-            <div class="modal">
-              <div class="headerModal">
-               <span>
-                 <i class="fa-solid fa-xmark"></i>
-                 close
-               </span>
-             </div>
-             <div class="modalContent">
-                <img src="uploads/6878ffa10fd5e4.54465264.jpg" alt="image error" width="30px" style="border-radius: 50%;"/>
-                <h3 class="title">Title</h3>
+        <div class="openModal" id="openModal" style="display: none; background-color:gray; color:black;">
+         
 
               <!--<<<<<<<<<<<<<<<<<<<<DROP YOUR COMMENT FORM>>>>>>>>>>>>>>>>>>>>>>> -->
             <form action="" method="POST">
@@ -62,9 +56,9 @@
         <div class="logoArea">
              <h2>StayTuned</h2>
               <span>
-                <form class="span">
+                <form class="span" action="phpFunction.php" method="GET">
                      <input type="search" name="search" placeholder="Search StayTuned" id="" >
-                     <button>
+                     <button name="searchBtn">
                          <i class="fa-solid fa-magnifying-glass"></i>
                      </button>
                     
@@ -75,7 +69,7 @@
             
             <!-- //HOME AREA -->
             <div class="homeArea">
-                <span>
+                <span id="home">
                     <i class="fa-solid fa-house" style="color: rgb(11, 86, 247);"></i>
                 </span>
                 <span>
@@ -116,7 +110,7 @@
             <div class="iconLeftbar">
                 <span class="profile">
                 <img src="uploads/ivanaProfile.jpg" alt="image error"/>
-                 <h4>oliver charlie lapinig</h4>
+                 <!-- <h4><?php $_SESSION['username']; ?></h4> -->
 
                 </span>
                 <span>
@@ -191,7 +185,7 @@
                 </form>
             </div>
         </div>
-
+        
         <!-- +++++++++++<<<<<<<<<<READ DATA FROM DATABASE USING I FETCH DATA USING PHP >>>>>>>>++++++++++++++++++ -->
         <?php   
         include_once("class/read.php");
@@ -220,8 +214,8 @@
                         <span>350 shares</span>
                       </div>
                       <div class="likeSection">
-                        <span class="like" id="like" onclick="likeCounts()"><i class="fa-regular fa-thumbs-up"></i>Like</span>
-                        <span class="comment" id="comment" onclick="comments()"><i class="fa-regular fa-comment"></i>Comments</span>
+                        <span class="like" id="like" ><i class="fa-regular fa-thumbs-up"></i>Like</span>
+                        <span class="comment" id="comment"><i class="fa-regular fa-comment"></i>Comments</span>
                        <span class="share"><i class="fa-solid fa-share"></i>share</span>
                      </div>
                    </div>
@@ -233,7 +227,7 @@
                   
     
     
-    <script src="js/index.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
 

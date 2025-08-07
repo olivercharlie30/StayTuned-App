@@ -1,9 +1,4 @@
-const comment = document.querySelector("#comment");
-const commentCounts =document.querySelector("#commentCounts");
-const likeCounts = document.querySelector("#likeCounts");
-const like = document.querySelector("#like");
 
- 
 
 const darkLightMode = ()=> {
    const seemore = document.querySelector("#seemore");
@@ -33,23 +28,31 @@ lightMode.addEventListener("click", ()=> {
 
 
 
-let likesCounts = ()=>{
-    let count=0;
-    count +=1;
-    likeCounts.innerHTML = count;
-    alert("like")
+// let likesCounts = ()=>{
+//     let count=0;
+//     count +=1;
+//     likeCounts.innerHTML = count;
+//     alert("like")
     
-}
+// }
 
-const comments = ()=> {
-    let commentCount=0;
-    commentCount +=1;
-    commentCounts.innerHTML = `${commentCount}`;
-    alert("comment")
-    console.log(commentCount)
-}
 
- 
+const comments = document.querySelectorAll("#comment");
+
+comments.forEach(comment => {
+
+  comment.addEventListener("click", ()=> {
+
+    comment.style.backgroundColor="red";
+    comment.innerHTML="hello";
+    comment.classList.add("active");
+  })
+  
+});
+
+
+
+
 
   
 

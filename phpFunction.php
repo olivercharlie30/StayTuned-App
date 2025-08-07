@@ -5,20 +5,27 @@
 function login(){
 
   if (isset($_POST['login'])){
-    $user = $_POST['username'];
-    $pass = $_POST['password'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    include_once("database/config.php");
+    include_once("class/loginClass.php");
+    $login = new login($username, $password);
+    $login->userLogin();
+ 
+
     // $password = md5($password);
     
-    $sql = "SELECT * FROM useracount WHERE username = '$user' and password ='$pass'";
-    $result = $conn->query($sql);
-      if($result->num_rows > 0){
-        session_start();
-        $row = $result->fetch_assoc();
-        $_SESSION['username'] = $row['username'];
-        header("location: user.php");
-      }else{
-        echo "not found or incorrect your info";
-      }
+  //   $sql = "SELECT * FROM useracount WHERE username = '$user' and password ='$pass'";
+  //   $result = $conn->query($sql);
+  //     if($result->num_rows > 0){
+  //       session_start();
+  //       $row = $result->fetch_assoc();
+  //       $_SESSION['username'] = $row['username'];
+  //       header("location: user.php");
+  //     }else{
+  //       echo "not found or incorrect your info";
+  //     }
   }
 }
 login();
@@ -80,7 +87,7 @@ insertPost();
 
 
 
-function signinHandler() {
+function Registered() {
 
     if (isset($_POST['signUp'])) {
     $firstname = $_POST['firstname'];
@@ -114,13 +121,13 @@ function signinHandler() {
                    
 
                 include_once("database/config.php");
-                include_once("class/signinClass.php");
-                $singin = new signin($firstname, $lastname, $month, $day, $year, $gender, $username, $password, $image);
-                $singin->userCheckIfExisting();  
-                $singin->insertSignin();
+                include_once("class/signinValidate.php");
+                $singin = new signinValidate($firstname,$lastname,$month,$day,$year,$gender,$username,$password,$image);
+                $singin->signinUserError();
+              
 
 
-                   echo "inserted successfully";
+                   echo "Registered successfully";
                 }else{
                       echo "you file is to big!.";
 
@@ -137,21 +144,21 @@ function signinHandler() {
   }    
 }
 
+Registered(); 
 
 
 
 function getUsername(){
 
   include_once("database/config.php");
-  include_once("class/signinClass.php");
-  $getSingin = new getAllUser();
+  include_once("class/displayAllUser.php");
+  $getSingin = new displayAllUser();
   $row = $getSingin->getUserAcount(); 
 
   foreach($row as $data){
     
-    
       echo "   <span style='display:flex; padding:5px; flex-direction:column;'>";
-      echo "  <a style='display:flex; padding:5px;' href='user.php?edit=$data[id]'>";
+      echo "  <a style='display:flex; padding:5px;' href='user.php?show=$data[id]'>";
       echo "  <img src='$data[image]' alt='error image' width='30px' height='30px' style='border-radius: 50%;'/>";   
       echo "   <p> $data[firstName] $data[lastName]</p>";          
       echo "  </a>";
@@ -159,3 +166,24 @@ function getUsername(){
   
   }
 }
+
+
+
+function search(){
+
+  if(isset($_GET['searchBtn'])){
+    $title = $_GET['search'];
+     // var_dump($_GET['search']);
+    include_once("database/config.php");
+    $config = new config();
+    $config->connect();
+    include_once("class/search.php");
+    $search = new search($title);
+    $search->searchInput();
+
+  }else{
+    echo " error";
+  }
+}
+search();
+?>

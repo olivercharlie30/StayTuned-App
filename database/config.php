@@ -15,7 +15,7 @@ class config{
             $this->pdo = new PDO("mysql:host=$this->host; dbname=$this->dbname", $this->user, $this->password);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        //    echo "connected to database person";
+        //    echo "connected to database ";
             return $this->pdo;
         } catch (PDOException $e) {
 
@@ -24,5 +24,5 @@ class config{
     }
 }
 
-$con = new config();
-$con->connect();
+// $con = new config();
+// $con->connect();
