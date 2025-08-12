@@ -38,13 +38,13 @@
           <div class="logoArea">
                <h2>StayTuned</h2>
                 <span>
-                  <form class="span">
-                       <input type="search" name="search" placeholder="Search StayTuned" id="" >
-                       <button>
-                           <i class="fa-solid fa-magnifying-glass"></i>
-                       </button>
-                      
-                  </form>
+                <form class="span" action="phpFunction.php" method="GET">
+                     <input type="search" name="search" placeholder="Search StayTuned" id="" >
+                     <button name="searchBtn">
+                         <i class="fa-solid fa-magnifying-glass"></i>
+                     </button>
+                    
+                </form>
                  
                 </span>
              </div>
@@ -105,6 +105,7 @@
             </div>
            
         </div>
+        <a href='index.php'>HOME</a>
     </main>
     <footer></footer>
   

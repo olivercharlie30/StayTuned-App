@@ -26,17 +26,17 @@
                                      CREATE MODAL FOR POST VIEW CONTENT 
                                       >>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
         <div class="openModal" id="openModal" style="display: none; background-color:gray; color:black;">
-         
+                <div class='card'>
+                    <h2>MODAL BOX</h2>
+                    <img src='uploads/python.jpg' alt='error image' width='400px' height='400px'/>
+                </div>
 
               <!--<<<<<<<<<<<<<<<<<<<<DROP YOUR COMMENT FORM>>>>>>>>>>>>>>>>>>>>>>> -->
             <form action="" method="POST">
             <nput type="text" name="commentPost" placeholder="Drop your Comment..." id="commentPost">
             <input type="submit" name="submitComment"/>
             </form>
-            </div>
-        
-     </div>
-   </div>
+       </div>
             
     <header>
         <!-- <<<<<<MOBILE DESIGN>>>>>>>> -->
@@ -190,38 +190,8 @@
         <?php   
         include_once("class/read.php");
         $read = new read();
-         $result = $read->readPost();
+        $read->readPost();
         ?>
-
-        <?php foreach($result as $data) { ?>
-         <div class="postImageContent" id="postImageContent">
-                  <div class="postIcon">
-                      <i class="fa-sharp fa-solid fa-angles-right"></i>
-                      <i class="fa-solid fa-xmark"></i>
-                    </div>
-                    <div class="user">
-                      <img class="userProfile" src="<?php echo $data['image'] ?>" alt="error profile img" width="30px" style="border-radius: 50%;"/>
-                      <div class="username"><strong><?php echo $data['title'] ?></strong></div>
-                    </div>
-                    <div class="dateTime"><?php echo $data['created_at'] ?></div>
-                    <div class="category"><p><?php echo $data['category'] ?><span class="textMore"></span></p>
-                        </div>
-                        <span class="readMoreBtn"><i class="fa-solid fa-angles-right"></i> See More....</span>
-                       <img src="<?php echo $data['image']?>" alt='error image' width="100%"/>
-                      <div class="countLike">
-                        <span id="likeCounts">0</span>
-                        <span id="commentCounts">1.5k comments</span>
-                        <span>350 shares</span>
-                      </div>
-                      <div class="likeSection">
-                        <span class="like" id="like" ><i class="fa-regular fa-thumbs-up"></i>Like</span>
-                        <span class="comment" id="comment"><i class="fa-regular fa-comment"></i>Comments</span>
-                       <span class="share"><i class="fa-solid fa-share"></i>share</span>
-                     </div>
-                   </div>
-                   <?php } ?>
-
-
     </main>
 
                   

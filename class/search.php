@@ -36,7 +36,7 @@ class search extends config{
                     <div class='category'><p>$data[category] <span class='textMore'></span></p>
                         </div>
                         <span class='readMoreBtn'><i class='fa-solid fa-angles-right'></i> See More....</span>
-                     <img src=$data[image] alt='error image' width='100%'/>
+                    <a href='index.php'> <img src=$data[image] alt='error image' width='100%'/></a>
                      <div class='countLike'>
                        <span id='likeCounts'>0</span>
                        <span id='commentCounts'>1.5k comments</span>

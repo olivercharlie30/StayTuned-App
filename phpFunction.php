@@ -50,7 +50,7 @@ function insertPost(){
       $fileExt = explode('.', $fileName);
       $fileActualExt = strtolower(end($fileExt));
   
-      $allowed = array('jpg', 'jpeg', 'png', 'pdf');
+      $allowed = array('jpg', 'jpeg', 'png', 'pdf','mp4','ogg','WebM');
   
         if(in_array($fileActualExt, $allowed)){
               if($fileError === 0){
@@ -172,7 +172,7 @@ function getUsername(){
 function search(){
 
   if(isset($_GET['searchBtn'])){
-    $title = $_GET['search'];
+    $title = '%'.$_GET['search'].'%';
      // var_dump($_GET['search']);
     include_once("database/config.php");
     $config = new config();

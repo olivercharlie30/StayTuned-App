@@ -8,14 +8,14 @@ class config{
     private $dbname = "staytuned";
     public $pdo = null;
 
-     function connect(){
+    public function connect(){
         try {
             
             
             $this->pdo = new PDO("mysql:host=$this->host; dbname=$this->dbname", $this->user, $this->password);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        //    echo "connected to database ";
+           //echo "connected to database ";
             return $this->pdo;
         } catch (PDOException $e) {
 
